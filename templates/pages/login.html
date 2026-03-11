@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../layout.css" />
+    <title>3čko</title>
+  </head>
+  <body>
+    <div id="header"></div>
+
+    <div class="main-content">
+      <div id="sidebar"></div>
+
+      <main>
+        <h1>Login</h1>
+      </main>
+    </div>
+  </body>
+  <script>
+    async function loadComponent(id, file) {
+      const res = await fetch(file);
+      document.getElementById(id).innerHTML = await res.text();
+    }
+
+    loadComponent("header", "../header.html");
+    loadComponent("sidebar", "../sidebar.html");
+  </script>
+</html>
+
+<style>
+  main {
+    text-align: center;
+  }
+</style>
