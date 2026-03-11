@@ -1,0 +1,81 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Enum gender {
+  men
+  women
+  unisex
+}
+
+Table Admins {
+  id integer [pk, increment]
+  login varchar
+  password varchar
+}
+
+Table users {
+  id integer [pk, increment] 
+  first_name varchar [not null]
+  last_name varchar [not null]
+  email varchar [unique, not null]
+  password_hash varchar [not null]
+  saved_address varchar
+  saved_delivery_method varchar
+  saved_payment_method varchar
+}
+
+Table products {
+  id integer [pk, increment]
+  name varchar
+  description text 
+  category varchar
+  gender gender
+  price decimal(10,2) [not null]
+  color varchar
+}
+
+Table sizes {
+  id integer [pk, increment]
+  size varchar
+  product_id integer
+}
+
+Table product_imgs {
+  product_id integer [not null]
+  image blob
+  order_number integer
+}
+
+Table items_in_basket {
+  user_id integer
+  item_id integer
+  quantity integer [not null, default: 1]
+
+  Indexes {
+    (user_id, item_id) [pk]
+  }
+}
+
+Table orders {
+  id integer [pk, increment]
+  user_id integer
+  timestamp timestamp
+  address varchar
+  delivery_method varchar
+  price decimal(10, 2) 
+}
+
+Table items_in_orders {
+  order_id integer
+  item_id integer
+  quantity integer
+}
+
+Ref : items_in_basket.user_id > users.id
+Ref : items_in_basket.item_id > sizes.id
+Ref : product_imgs.product_id > products.id
+Ref : sizes.product_id > products.id
+Ref : users.id < orders.user_id
+
+Ref : items_in_orders.order_id < orders.id 
+Ref : items_in_orders.item_id < sizes.id
