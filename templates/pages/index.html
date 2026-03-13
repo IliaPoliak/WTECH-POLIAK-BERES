@@ -12,8 +12,95 @@
     <div class="main-content">
       <div id="sidebar"></div>
 
-      <main>
-        <h1>Homepage</h1>
+        <main class="homepage">
+          <section class="Sekcia_bestsellers">
+            <h2>Bestsellery</h2>
+            <div class="Obsah_bestsellers">
+              <div class="Bestseller_produkty">
+                <a href="./product-detail.html" class="Produkt_karta">
+                  <h3>Biele tričko</h3>
+                  <div class="Produkt_obrazok">Foto produktu</div>
+                  <p>19.99€</p>
+                </a>
+
+                <a href="./product-detail.html" class="Produkt_karta">
+                  <h3>Čierne tričko</h3>
+                  <div class="Produkt_obrazok">Foto produktu</div>
+                  <p>17.99€</p>
+                </a>
+
+                <a href="./product-detail.html" class="Produkt_karta">
+                  <h3>Modré tričko</h3>
+                  <div class="Produkt_obrazok">Foto produktu</div>
+                  <p>18.99€</p>
+                </a>
+
+                <a href="./product-detail.html" class="Produkt_karta">
+                  <h3>Zelené tričko</h3>
+                  <div class="Produkt_obrazok">Foto produktu</div>
+                  <p>16.99€</p>
+                </a>
+
+                <a href="./product-detail.html" class="Produkt_karta">
+                  <h3>Premium mikina</h3>
+                  <div class="Produkt_obrazok">Foto produktu</div>
+                  <p>70.99€</p>
+                </a>
+              </div>
+            </div>
+          </section>
+
+          <section class="homepage_Spodok">
+            <div class="Sekcia_Novinky">
+              <h2>Novinky</h2>
+              <div class="Obsah_Novinky">
+                <div class="Novinky_produkty">
+                  <a href="#" class="Produkt_karta_mala">
+                    <h3>Modré tričko</h3>
+                    <div class="Produkt_obrazok_maly">Foto produktu</div>
+                    <p>14.99€</p>
+                  </a>
+
+                  <a href="./product-detail.html" class="Produkt_karta_mala">
+                    <h3>Zelené tričko</h3>
+                    <div class="Produkt_obrazok_maly">Foto produktu</div>
+                    <p>14.99€</p>
+                  </a>
+
+                  <a href="./product-detail.html" class="Produkt_karta_mala">
+                    <h3>Žlté tričko</h3>
+                    <div class="Produkt_obrazok_maly">Foto produktu</div>
+                    <p>14.99€</p>
+                  </a>
+
+                  <a href="./product-detail.html" class="Produkt_karta_mala">
+                    <h3>Oranžové tričko</h3>
+                    <div class="Produkt_obrazok_maly">Foto produktu</div>
+                    <p>14.99€</p>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="Sekcia_AkciaDna">
+              <h2>Akcia dňa</h2>
+              <div class="Obsah_AkciaDna">
+                <a href="./product-detail.html" class="AkciaDna_link">
+                  <div class="AkciaDna_karta">
+                    <h3>Fialové tričko</h3>
+                    <div class="Zlava_badge">-25%</div>
+                    <div class="Produkt_obrazok_akcia">Foto produktu</div>
+
+                    <div class="Ceny_akcia">
+                      <span class="Stara_cena">14.99€</span>
+                      <span class="Nova_cena">10.99€</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </section>
+        </main>
       </main>
     </div>
   </body>
@@ -27,9 +114,3 @@
     loadComponent("sidebar", "../sidebar.html");
   </script>
 </html>
-
-<style>
-  main {
-    text-align: center;
-  }
-</style>
