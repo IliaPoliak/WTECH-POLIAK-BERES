@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../layout.css" />
+    <title>Category - Tričká</title>
+</head>
+<body>
+<div id="header"></div>
+
+<div class="main-content">
+    <div id="sidebar"></div>
+
+    <main class="category-page">
+        <div class="category-layout">
+            <aside class="category-filters">
+                <h2>Použiť filtre:</h2>
+
+                <div class="filter-section">
+                    <h3>Cena</h3>
+                    <div class="price-range-line">
+                        <span class="range-dot"></span>
+                        <span class="range-dot"></span>
+                    </div>
+                    <div class="price-values">
+                        <span>x</span>
+                        <span>y</span>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Veľkosť</h3>
+                    <div class="size-options">
+                        <button class="size-button">XS</button>
+                        <button class="size-button">S</button>
+                        <button class="size-button">M</button>
+                        <button class="size-button">L</button>
+                        <button class="size-button">XL</button>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Farba</h3>
+                    <div class="color-options">
+                        <button class="color-button"></button>
+                        <button class="color-button"></button>
+                        <button class="color-button"></button>
+                        <button class="color-button"></button>
+                        <button class="color-button"></button>
+                        <button class="color-button"></button>
+                        <button class="color-button"></button>
+                        <button class="color-button"></button>
+                        <button class="color-button"></button>
+                    </div>
+                </div>
+
+                <button class="filter-submit-button">Filtrovať</button>
+            </aside>
+
+
+            <section class="category-content">
+                <div class="category-top">
+                    <h1>Tričká</h1>
+                    <div class="sort-box">
+                        <div class="sort-title">Zoradiť podľa ceny</div>
+                        <div class="sort-buttons">
+                            <button class="sort-button">ZOSTUPNE</button>
+                            <button class="sort-button">VZOSTUPNE</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="category-products-grid">
+                    <a href="./product-detail.html" class="category-product-card">
+                        <div class="category-card-top">
+                            <h3>Zelené tričko</h3>
+                            <span class="category-price">12,99€</span>
+                        </div>
+                        <div class="category-color">Zelená</div>
+                        <div class="category-image">Fotka produktu</div>
+                    </a>
+
+                    <a href="./product-detail.html" class="category-product-card">
+                        <div class="category-card-top">
+                            <h3>Modré tričko</h3>
+                            <span class="category-price">22,99€</span>
+                        </div>
+                        <div class="category-color">Modrá</div>
+                        <div class="category-image">Fotka produktu</div>
+                    </a>
+
+                    <a href="./product-detail.html" class="category-product-card">
+                        <div class="category-card-top">
+                            <h3>Červené tričko</h3>
+                            <span class="category-price">13,99€</span>
+                        </div>
+                        <div class="category-color">Červená</div>
+                        <div class="category-image">Fotka produktu</div>
+                    </a>
+
+                    <a href="./product-detail.html" class="category-product-card">
+                        <div class="category-card-top">
+                            <h3>Biele tričko</h3>
+                            <span class="category-price">15,99€</span>
+                        </div>
+                        <div class="category-color">Biela</div>
+                        <div class="category-image">Fotka produktu</div>
+                    </a>
+
+                    <a href="./product-detail.html" class="category-product-card">
+                        <div class="category-card-top">
+                            <h3>Čierne tričko</h3>
+                            <span class="category-price">18,99€</span>
+                        </div>
+                        <div class="category-color">Čierna</div>
+                        <div class="category-image">Fotka produktu</div>
+                    </a>
+
+                    <a href="./product-detail.html" class="category-product-card">
+                        <div class="category-card-top">
+                            <h3>Žlté tričko</h3>
+                            <span class="category-price">14,99€</span>
+                        </div>
+                        <div class="category-color">Žltá</div>
+                        <div class="category-image">Fotka produktu</div>
+                    </a>
+                </div>
+
+
+                <div class="pagination-placeholder">
+                    <a href="#" class="page-link">1</a>
+                    <a href="#" class="page-link">2</a>
+                    <a href="#" class="page-link">3</a>
+                    <a href="#" class="page-link">...</a>
+                </div>
+
+            </section>
+        </div>
+
+    </main>
+</div>
+
+<script>
+    async function loadComponent(id, file) {
+        const res = await fetch(file);
+        document.getElementById(id).innerHTML = await res.text();
+    }
+
+    loadComponent("header", "../header.html");
+    loadComponent("sidebar", "../sidebar.html");
+</script>
+</body>
+</html>
