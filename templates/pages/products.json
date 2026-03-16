@@ -1,0 +1,98 @@
+{
+  "tricka": [
+    {
+      "name": "Zelené tričko",
+      "price": "12,99€",
+      "color": "Zelená"
+    },
+    {
+      "name": "Modré tričko",
+      "price": "22,99€",
+      "color": "Modrá"
+    },
+    {
+      "name": "Červené tričko",
+      "price": "13,99€",
+      "color": "Červená"
+    },
+    {
+      "name": "Biele tričko",
+      "price": "15,99€",
+      "color": "Biela"
+    },
+    {
+      "name": "Čierne tričko",
+      "price": "18,99€",
+      "color": "Čierna"
+    },
+    {
+      "name": "Žlté tričko",
+      "price": "14,99€",
+      "color": "Žltá"
+    }
+  ],
+  "mikiny": [
+    {
+      "name": "Zelená mikina",
+      "price": "27,99€",
+      "color": "Zelená"
+    },
+    {
+      "name": "Modrá mikina",
+      "price": "18,99€",
+      "color": "Modrá"
+    },
+    {
+      "name": "Červená mikina",
+      "price": "15,99€",
+      "color": "Červená"
+    },
+    {
+      "name": "Biela mikina",
+      "price": "19,99€",
+      "color": "Biela"
+    },
+    {
+      "name": "Čierna mikina",
+      "price": "19,99€",
+      "color": "Čierna"
+    },
+    {
+      "name": "Žltá mikina",
+      "price": "25,99€",
+      "color": "Žltá"
+    }
+  ],
+  "ciapky": [
+    {
+      "name": "Zelená čiapka",
+      "price": "7,99€",
+      "color": "Zelená"
+    },
+    {
+      "name": "Modrá čiapka",
+      "price": "8,99€",
+      "color": "Modrá"
+    },
+    {
+      "name": "Červená čiapka",
+      "price": "5,99€",
+      "color": "Červená"
+    },
+    {
+      "name": "Biela čiapka",
+      "price": "9,99€",
+      "color": "Biela"
+    },
+    {
+      "name": "Čierna čiapka",
+      "price": "9,99€",
+      "color": "Čierna"
+    },
+    {
+      "name": "Žltá čiapka",
+      "price": "11,99€",
+      "color": "Žltá"
+    }
+  ]
+}

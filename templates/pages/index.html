@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../layout.css" />
-    <link rel="stylesheet" href="pages.css" />
     <title>3čko</title>
   </head>
   <body>
@@ -13,88 +12,88 @@
     <div class="main-content">
       <div id="sidebar"></div>
 
-        <main class="homepage">
-          <section class="Sekcia_bestsellers">
+        <main>
+          <section class="bestsellers-section">
             <h2>Bestsellery</h2>
-            <div class="Obsah_bestsellers">
-              <div class="Bestseller_produkty">
-                <a href="./product-detail.html" class="Produkt_karta">
+            <div class="bestsellers-content">
+              <div class="bestsellers-produkts">
+                <a href="./product-detail.html" class="product-card">
                   <h3>Biele tričko</h3>
-                  <div class="Produkt_obrazok">Foto produktu</div>
+                  <div class="product_img">Foto produktu</div>
                   <p>19.99€</p>
                 </a>
 
-                <a href="./product-detail.html" class="Produkt_karta">
+                <a href="./product-detail.html" class="product-card">
                   <h3>Čierne tričko</h3>
-                  <div class="Produkt_obrazok">Foto produktu</div>
+                  <div class="product_img">Foto produktu</div>
                   <p>17.99€</p>
                 </a>
 
-                <a href="./product-detail.html" class="Produkt_karta">
+                <a href="./product-detail.html" class="product-card">
                   <h3>Modré tričko</h3>
-                  <div class="Produkt_obrazok">Foto produktu</div>
+                  <div class="product_img">Foto produktu</div>
                   <p>18.99€</p>
                 </a>
 
-                <a href="./product-detail.html" class="Produkt_karta">
+                <a href="./product-detail.html" class="product-card">
                   <h3>Zelené tričko</h3>
-                  <div class="Produkt_obrazok">Foto produktu</div>
+                  <div class="product_img">Foto produktu</div>
                   <p>16.99€</p>
                 </a>
 
-                <a href="./product-detail.html" class="Produkt_karta">
+                <a href="./product-detail.html" class="product-card">
                   <h3>Premium mikina</h3>
-                  <div class="Produkt_obrazok">Foto produktu</div>
+                  <div class="product_img">Foto produktu</div>
                   <p>70.99€</p>
                 </a>
               </div>
             </div>
           </section>
 
-          <section class="homepage_Spodok">
-            <div class="Sekcia_Novinky">
+          <section class="homepage-bottom">
+            <div class="novinky-section">
               <h2>Novinky</h2>
-              <div class="Obsah_Novinky">
-                <div class="Novinky_produkty">
-                  <a href="#" class="Produkt_karta_mala">
+              <div class="novinky-contents">
+                <div class="novinky-produkts">
+                  <a href="#" class="product-card-sm">
                     <h3>Modré tričko</h3>
-                    <div class="Produkt_obrazok_maly">Foto produktu</div>
+                    <div class="product-img-sm">Foto produktu</div>
                     <p>14.99€</p>
                   </a>
 
-                  <a href="./product-detail.html" class="Produkt_karta_mala">
+                  <a href="./product-detail.html" class="product-card-sm">
                     <h3>Zelené tričko</h3>
-                    <div class="Produkt_obrazok_maly">Foto produktu</div>
+                    <div class="product-img-sm">Foto produktu</div>
                     <p>14.99€</p>
                   </a>
 
-                  <a href="./product-detail.html" class="Produkt_karta_mala">
+                  <a href="./product-detail.html" class="product-card-sm">
                     <h3>Žlté tričko</h3>
-                    <div class="Produkt_obrazok_maly">Foto produktu</div>
+                    <div class="product-img-sm">Foto produktu</div>
                     <p>14.99€</p>
                   </a>
 
-                  <a href="./product-detail.html" class="Produkt_karta_mala">
+                  <a href="./product-detail.html" class="product-card-sm">
                     <h3>Oranžové tričko</h3>
-                    <div class="Produkt_obrazok_maly">Foto produktu</div>
+                    <div class="product-img-sm">Foto produktu</div>
                     <p>14.99€</p>
                   </a>
                 </div>
               </div>
             </div>
 
-            <div class="Sekcia_AkciaDna">
+            <div class="akcia-dna-section">
               <h2>Akcia dňa</h2>
-              <div class="Obsah_AkciaDna">
-                <a href="./product-detail.html" class="AkciaDna_link">
-                  <div class="AkciaDna_karta">
+              <div class="akcia-dna-contents">
+                <a href="./product-detail.html">
+                  <div class="akcia-dna-card">
                     <h3>Fialové tričko</h3>
-                    <div class="Zlava_badge">-25%</div>
-                    <div class="Produkt_obrazok_akcia">Foto produktu</div>
+                    <div class="sale-badge">-25%</div>
+                    <div class="akcia-dna-product-img">Foto produktu</div>
 
-                    <div class="Ceny_akcia">
-                      <span class="Stara_cena">14.99€</span>
-                      <span class="Nova_cena">10.99€</span>
+                    <div class="akcia-dna-prices">
+                      <span class="old-price">14.99€</span>
+                      <span class="new-price">10.99€</span>
                     </div>
                   </div>
                 </a>
@@ -115,3 +114,172 @@
     loadComponent("sidebar", "../sidebar.html");
   </script>
 </html>
+
+
+<style>
+main {
+    padding: 30px;
+    padding-top: 0;
+}
+
+.bestsellers-section {
+  margin-bottom: 40px;
+}
+
+.bestsellers-content {
+  min-height: 120px;
+  border: 1px solid #999;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.homepage-bottom {
+  display: flex;
+  gap: 30px;
+}
+
+.novinky-section,
+.akcia-dna-section {
+  flex: 1;
+}
+
+.novinky-contents,
+.akcia-dna-contents {
+  min-height: 250px;
+  border: 1px solid #999;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.bestsellers-produkts {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.product-card {
+  width: 180px;
+  min-height: 220px;
+  border: 1px solid #666;
+  border-radius: 20px;
+  padding: 15px;
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+}
+
+.product_img {
+  width: 120px;
+  height: 120px;
+  border: 1px solid #999;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.product-card h3 {
+  font-size: 20px;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.product-card p {
+  font-size: 18px;
+  margin: 0;
+}
+
+.novinky-produkts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.product-card-sm {
+  border: 1px solid #666;
+  border-radius: 20px;
+  padding: 15px;
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+}
+
+.product-img-sm {
+  width: 90px;
+  height: 90px;
+  border: 1px solid #999;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.product-card-sm h3 {
+  font-size: 18px;
+  text-align: center;
+  margin: 0;
+}
+
+.product-card-sm p {
+  font-size: 16px;
+  margin: 0;
+}
+
+.akcia-dna-card {
+  border: 1px solid #666;
+  border-radius: 25px;
+  padding: 20px;
+  background-color: white;
+  text-align: center;
+  min-height: 320px;
+  position: relative;
+}
+
+.sale-badge {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #bbb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.akcia-dna-product-img {
+  height: 180px;
+  border: 1px solid #999;
+  margin-top: 20px;
+  margin-bottom: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.akcia-dna-prices {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28px;
+}
+.old-price {
+  text-decoration: line-through;
+  color: #555;
+}
+
+</style>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../layout.css" />
-    <link rel="stylesheet" href="pages.css" />
+    <link rel="stylesheet" href="category_pages.css" />
     <title>Category - Mikiny</title>
   </head>
   <body>
@@ -13,128 +13,19 @@
     <div class="main-content">
       <div id="sidebar"></div>
 
-      <main class="category-page">
-        <div class="category-layout">
-          <aside class="category-filters">
-            <h2>Použiť filtre:</h2>
+      <main>
+        <div id="filters"></div>
 
-            <div class="filter-section">
-              <h3>Cena</h3>
-              <div class="price-range-line">
-                <span class="range-dot"></span>
-                <span class="range-dot"></span>
-              </div>
-              <div class="price-values">
-                <span>x</span>
-                <span>y</span>
-              </div>
-            </div>
+        <section class="category-content">
+          <div class="category-top">
+            <h1>Mikiny</h1>
+            <div id="sort-box"></div>
+          </div>
 
-            <div class="filter-section">
-              <h3>Veľkosť</h3>
-              <div class="size-options">
-                <button class="size-button">XS</button>
-                <button class="size-button">S</button>
-                <button class="size-button">M</button>
-                <button class="size-button">L</button>
-                <button class="size-button">XL</button>
-              </div>
-            </div>
+          <div class="category-products-grid"></div>
 
-            <div class="filter-section">
-              <h3>Farba</h3>
-              <div class="color-options">
-                <button class="color-button"></button>
-                <button class="color-button"></button>
-                <button class="color-button"></button>
-                <button class="color-button"></button>
-                <button class="color-button"></button>
-                <button class="color-button"></button>
-                <button class="color-button"></button>
-                <button class="color-button"></button>
-                <button class="color-button"></button>
-              </div>
-            </div>
-
-            <button class="filter-submit-button">Filtrovať</button>
-          </aside>
-
-          <section class="category-content">
-            <div class="category-top">
-              <h1>Mikiny</h1>
-              <div class="sort-box">
-                <div class="sort-title">Zoradiť podľa ceny</div>
-                <div class="sort-buttons">
-                  <button class="sort-button">ZOSTUPNE</button>
-                  <button class="sort-button">VZOSTUPNE</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="category-products-grid">
-              <a href="./product-detail.html" class="category-product-card">
-                <div class="category-card-top">
-                  <h3>Zelená mikina</h3>
-                  <span class="category-price">27,99€</span>
-                </div>
-                <div class="category-color">Zelená</div>
-                <div class="category-image">Fotka produktu</div>
-              </a>
-
-              <a href="./product-detail.html" class="category-product-card">
-                <div class="category-card-top">
-                  <h3>Modrá mikina</h3>
-                  <span class="category-price">18,99€</span>
-                </div>
-                <div class="category-color">Modrá</div>
-                <div class="category-image">Fotka produktu</div>
-              </a>
-
-              <a href="./product-detail.html" class="category-product-card">
-                <div class="category-card-top">
-                  <h3>Červená mikina</h3>
-                  <span class="category-price">15,99€</span>
-                </div>
-                <div class="category-color">Červená</div>
-                <div class="category-image">Fotka produktu</div>
-              </a>
-
-              <a href="./product-detail.html" class="category-product-card">
-                <div class="category-card-top">
-                  <h3>Biela mikina</h3>
-                  <span class="category-price">19,99€</span>
-                </div>
-                <div class="category-color">Biela</div>
-                <div class="category-image">Fotka produktu</div>
-              </a>
-
-              <a href="./product-detail.html" class="category-product-card">
-                <div class="category-card-top">
-                  <h3>Čierna mikina</h3>
-                  <span class="category-price">19,99€</span>
-                </div>
-                <div class="category-color">Čierna</div>
-                <div class="category-image">Fotka produktu</div>
-              </a>
-
-              <a href="./product-detail.html" class="category-product-card">
-                <div class="category-card-top">
-                  <h3>Žltá mikina</h3>
-                  <span class="category-price">25,99€</span>
-                </div>
-                <div class="category-color">Žltá</div>
-                <div class="category-image">Fotka produktu</div>
-              </a>
-            </div>
-
-            <div class="pagination-placeholder">
-              <a href="#" class="page-link">1</a>
-              <a href="#" class="page-link">2</a>
-              <a href="#" class="page-link">3</a>
-              <a href="#" class="page-link">...</a>
-            </div>
-          </section>
-        </div>
+          <div id="pagination"></div>
+        </section>
       </main>
     </div>
 
@@ -144,8 +35,36 @@
         document.getElementById(id).innerHTML = await res.text();
       }
 
+      async function loadProducts(category) {
+        const res = await fetch("products.json");
+        const data = await res.json();
+
+        const container = document.getElementsByClassName(
+          "category-products-grid",
+        );
+
+        data[category].forEach((product) => {
+          const item = document.createElement("div");
+          item.innerHTML = `
+              <a href="./product-detail.html" class="category-product-card">
+                <div class="category-card-top">
+                  <h3>${product.name}</h3>
+                  <span class="category-price">${product.price}</span>
+                </div>
+                <div class="category-color">${product.color}</div>
+                <div class="category-image">Fotka produktu</div>
+              </a>
+          `;
+          container[0].appendChild(item);
+        });
+      }
+
       loadComponent("header", "../header.html");
       loadComponent("sidebar", "../sidebar.html");
+      loadComponent("filters", "../category_filters.html");
+      loadComponent("sort-box", "../category_sortbox.html");
+      loadComponent("pagination", "../category_pagination.html");
+      loadProducts("mikiny");
     </script>
   </body>
 </html>

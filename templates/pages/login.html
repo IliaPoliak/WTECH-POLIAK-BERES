@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../layout.css" />
-    <link rel="stylesheet" href="pages.css" />
+    <link rel="stylesheet" href="auth.css" />
     <title>3čko</title>
   </head>
   <body>
@@ -14,22 +14,22 @@
       <div id="sidebar"></div>
 
       <main>
-        <div class="login-page">
-          <h1>Prihlásenie</h1>
+        <h1>Prihlásenie</h1>
 
-          <div class="login-form">
-            <div class="form-row">
-              <label for="login-email">e-mail</label>
-              <input type="email" id="login-email" />
-            </div>
-
-            <div class="form-row">
-              <label for="login-password">heslo</label>
-              <input type="password" id="login-password" />
-            </div>
+        <div>
+          <div class="form-row">
+            <label for="login-email">e-mail</label>
+            <input type="email" id="login-email" />
           </div>
 
-          <p class="login-register-text">Nemáte účet?</p>
+          <div class="form-row">
+            <label for="login-password">heslo</label>
+            <input type="password" id="login-password" />
+          </div>
+        </div>
+
+        <div class="login-register-container">
+          <p>Nemáte účet?</p>
 
           <a href="./register.html" class="login-register-button"
             >Registrovať sa</a
@@ -48,9 +48,3 @@
     loadComponent("sidebar", "../sidebar.html");
   </script>
 </html>
-
-<style>
-  main {
-    text-align: center;
-  }
-</style>
