@@ -1,155 +1,151 @@
 <!doctype html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../layout.css" />
+    <link rel="stylesheet" href="pages.css" />
     <title>Category - Čiapky</title>
-</head>
-<body>
-<div id="header"></div>
+  </head>
+  <body>
+    <div id="header"></div>
 
-<div class="main-content">
-    <div id="sidebar"></div>
+    <div class="main-content">
+      <div id="sidebar"></div>
 
-    <main class="category-page">
+      <main class="category-page">
         <div class="category-layout">
-            <aside class="category-filters">
-                <h2>Použiť filtre:</h2>
+          <aside class="category-filters">
+            <h2>Použiť filtre:</h2>
 
-                <div class="filter-section">
-                    <h3>Cena</h3>
-                    <div class="price-range-line">
-                        <span class="range-dot"></span>
-                        <span class="range-dot"></span>
-                    </div>
-                    <div class="price-values">
-                        <span>x</span>
-                        <span>y</span>
-                    </div>
+            <div class="filter-section">
+              <h3>Cena</h3>
+              <div class="price-range-line">
+                <span class="range-dot"></span>
+                <span class="range-dot"></span>
+              </div>
+              <div class="price-values">
+                <span>x</span>
+                <span>y</span>
+              </div>
+            </div>
+
+            <div class="filter-section">
+              <h3>Veľkosť</h3>
+              <div class="size-options">
+                <button class="size-button">XS</button>
+                <button class="size-button">S</button>
+                <button class="size-button">M</button>
+                <button class="size-button">L</button>
+                <button class="size-button">XL</button>
+              </div>
+            </div>
+
+            <div class="filter-section">
+              <h3>Farba</h3>
+              <div class="color-options">
+                <button class="color-button"></button>
+                <button class="color-button"></button>
+                <button class="color-button"></button>
+                <button class="color-button"></button>
+                <button class="color-button"></button>
+                <button class="color-button"></button>
+                <button class="color-button"></button>
+                <button class="color-button"></button>
+                <button class="color-button"></button>
+              </div>
+            </div>
+
+            <button class="filter-submit-button">Filtrovať</button>
+          </aside>
+
+          <section class="category-content">
+            <div class="category-top">
+              <h1>Čiapky</h1>
+              <div class="sort-box">
+                <div class="sort-title">Zoradiť podľa ceny</div>
+                <div class="sort-buttons">
+                  <button class="sort-button">ZOSTUPNE</button>
+                  <button class="sort-button">VZOSTUPNE</button>
                 </div>
+              </div>
+            </div>
 
-                <div class="filter-section">
-                    <h3>Veľkosť</h3>
-                    <div class="size-options">
-                        <button class="size-button">XS</button>
-                        <button class="size-button">S</button>
-                        <button class="size-button">M</button>
-                        <button class="size-button">L</button>
-                        <button class="size-button">XL</button>
-                    </div>
+            <div class="category-products-grid">
+              <a href="./product-detail.html" class="category-product-card">
+                <div class="category-card-top">
+                  <h3>Zelená čiapka</h3>
+                  <span class="category-price">7,99€</span>
                 </div>
+                <div class="category-color">Zelená</div>
+                <div class="category-image">Fotka produktu</div>
+              </a>
 
-                <div class="filter-section">
-                    <h3>Farba</h3>
-                    <div class="color-options">
-                        <button class="color-button"></button>
-                        <button class="color-button"></button>
-                        <button class="color-button"></button>
-                        <button class="color-button"></button>
-                        <button class="color-button"></button>
-                        <button class="color-button"></button>
-                        <button class="color-button"></button>
-                        <button class="color-button"></button>
-                        <button class="color-button"></button>
-                    </div>
+              <a href="./product-detail.html" class="category-product-card">
+                <div class="category-card-top">
+                  <h3>Modrá čiapka</h3>
+                  <span class="category-price">8,99€</span>
                 </div>
+                <div class="category-color">Modrá</div>
+                <div class="category-image">Fotka produktu</div>
+              </a>
 
-                <button class="filter-submit-button">Filtrovať</button>
-            </aside>
-
-
-            <section class="category-content">
-                <div class="category-top">
-                    <h1>Čiapky</h1>
-                    <div class="sort-box">
-                        <div class="sort-title">Zoradiť podľa ceny</div>
-                        <div class="sort-buttons">
-                            <button class="sort-button">ZOSTUPNE</button>
-                            <button class="sort-button">VZOSTUPNE</button>
-                        </div>
-                    </div>
-
+              <a href="./product-detail.html" class="category-product-card">
+                <div class="category-card-top">
+                  <h3>Červená čiapka</h3>
+                  <span class="category-price">5,99€</span>
                 </div>
+                <div class="category-color">Červená</div>
+                <div class="category-image">Fotka produktu</div>
+              </a>
 
-                <div class="category-products-grid">
-                    <a href="./product-detail.html" class="category-product-card">
-                        <div class="category-card-top">
-                            <h3>Zelená čiapka</h3>
-                            <span class="category-price">7,99€</span>
-                        </div>
-                        <div class="category-color">Zelená</div>
-                        <div class="category-image">Fotka produktu</div>
-                    </a>
-
-                    <a href="./product-detail.html" class="category-product-card">
-                        <div class="category-card-top">
-                            <h3>Modrá čiapka</h3>
-                            <span class="category-price">8,99€</span>
-                        </div>
-                        <div class="category-color">Modrá</div>
-                        <div class="category-image">Fotka produktu</div>
-                    </a>
-
-                    <a href="./product-detail.html" class="category-product-card">
-                        <div class="category-card-top">
-                            <h3>Červená čiapka</h3>
-                            <span class="category-price">5,99€</span>
-                        </div>
-                        <div class="category-color">Červená</div>
-                        <div class="category-image">Fotka produktu</div>
-                    </a>
-
-                    <a href="./product-detail.html" class="category-product-card">
-                        <div class="category-card-top">
-                            <h3>Biela čiapka</h3>
-                            <span class="category-price">9,99€</span>
-                        </div>
-                        <div class="category-color">Biela</div>
-                        <div class="category-image">Fotka produktu</div>
-                    </a>
-
-                    <a href="./product-detail.html" class="category-product-card">
-                        <div class="category-card-top">
-                            <h3>Čierna čiapka</h3>
-                            <span class="category-price">9,99€</span>
-                        </div>
-                        <div class="category-color">Čierna</div>
-                        <div class="category-image">Fotka produktu</div>
-                    </a>
-
-                    <a href="./product-detail.html" class="category-product-card">
-                        <div class="category-card-top">
-                            <h3>Žltá čiapka</h3>
-                            <span class="category-price">11,99€</span>
-                        </div>
-                        <div class="category-color">Žltá</div>
-                        <div class="category-image">Fotka produktu</div>
-                    </a>
+              <a href="./product-detail.html" class="category-product-card">
+                <div class="category-card-top">
+                  <h3>Biela čiapka</h3>
+                  <span class="category-price">9,99€</span>
                 </div>
+                <div class="category-color">Biela</div>
+                <div class="category-image">Fotka produktu</div>
+              </a>
 
-
-                <div class="pagination-placeholder">
-                    <a href="#" class="page-link">1</a>
-                    <a href="#" class="page-link">2</a>
-                    <a href="#" class="page-link">3</a>
-                    <a href="#" class="page-link">...</a>
+              <a href="./product-detail.html" class="category-product-card">
+                <div class="category-card-top">
+                  <h3>Čierna čiapka</h3>
+                  <span class="category-price">9,99€</span>
                 </div>
+                <div class="category-color">Čierna</div>
+                <div class="category-image">Fotka produktu</div>
+              </a>
 
-            </section>
+              <a href="./product-detail.html" class="category-product-card">
+                <div class="category-card-top">
+                  <h3>Žltá čiapka</h3>
+                  <span class="category-price">11,99€</span>
+                </div>
+                <div class="category-color">Žltá</div>
+                <div class="category-image">Fotka produktu</div>
+              </a>
+            </div>
+
+            <div class="pagination-placeholder">
+              <a href="#" class="page-link">1</a>
+              <a href="#" class="page-link">2</a>
+              <a href="#" class="page-link">3</a>
+              <a href="#" class="page-link">...</a>
+            </div>
+          </section>
         </div>
+      </main>
+    </div>
 
-    </main>
-</div>
-
-<script>
-    async function loadComponent(id, file) {
+    <script>
+      async function loadComponent(id, file) {
         const res = await fetch(file);
         document.getElementById(id).innerHTML = await res.text();
-    }
+      }
 
-    loadComponent("header", "../header.html");
-    loadComponent("sidebar", "../sidebar.html");
-</script>
-</body>
+      loadComponent("header", "../header.html");
+      loadComponent("sidebar", "../sidebar.html");
+    </script>
+  </body>
 </html>
