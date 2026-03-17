@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../../config.js"></script>
+    <script src="../../utils.js"></script>
+    <script>
+      loadBasePath(BASE_PATH);
+    </script>
+    <link rel="stylesheet" href="layout/layout.css" />
+    <link rel="stylesheet" href="variables.css" />
+    <link rel="stylesheet" href="pages/category_pages/category_pages.css" />
+    <title>Category - Čiapky</title>
+  </head>
+  <body>
+    <div id="header"></div>
+
+    <div class="main-content">
+      <div id="sidebar"></div>
+
+      <main>
+        <div id="filters"></div>
+
+        <section class="category-content">
+          <div class="category-top">
+            <h1>Čiapky</h1>
+            <div id="sort-box"></div>
+          </div>
+
+          <div class="category-products-grid"></div>
+
+          <div id="pagination"></div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      loadComponent("header", "layout/header.html");
+      loadComponent("sidebar", "layout/sidebar.html");
+      loadComponent("filters", "pages/category_pages/category_filters.html");
+      loadComponent("sort-box", "pages/category_pages/category_sortbox.html");
+      loadComponent(
+        "pagination",
+        "pages/category_pages/category_pagination.html",
+      );
+      loadProducts("ciapky");
+    </script>
+  </body>
+</html>

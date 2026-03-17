@@ -3,7 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../layout.css" />
+    <script src="../config.js"></script>
+    <script src="../utils.js"></script>
+    <script>
+      loadBasePath(BASE_PATH);
+    </script>
+    <link rel="stylesheet" href="layout/layout.css" />
+    <link rel="stylesheet" href="variables.css" />
     <title>3čko</title>
   </head>
   <body>
@@ -16,32 +22,32 @@
           <section class="bestsellers-section">
             <h2>Bestsellery</h2>
             <div class="bestsellers-content">
-              <div class="bestsellers-produkts">
-                <a href="./product-detail.html" class="product-card">
+              <div class="bestsellers-products">
+                <a href="pages/product-detail.html" class="product-card">
                   <h3>Biele tričko</h3>
                   <div class="product_img">Foto produktu</div>
                   <p>19.99€</p>
                 </a>
 
-                <a href="./product-detail.html" class="product-card">
+                <a href="pages/product-detail.html" class="product-card">
                   <h3>Čierne tričko</h3>
                   <div class="product_img">Foto produktu</div>
                   <p>17.99€</p>
                 </a>
 
-                <a href="./product-detail.html" class="product-card">
+                <a href="pages/product-detail.html" class="product-card">
                   <h3>Modré tričko</h3>
                   <div class="product_img">Foto produktu</div>
                   <p>18.99€</p>
                 </a>
 
-                <a href="./product-detail.html" class="product-card">
+                <a href="pages/product-detail.html" class="product-card">
                   <h3>Zelené tričko</h3>
                   <div class="product_img">Foto produktu</div>
                   <p>16.99€</p>
                 </a>
 
-                <a href="./product-detail.html" class="product-card">
+                <a href="pages/product-detail.html" class="product-card">
                   <h3>Premium mikina</h3>
                   <div class="product_img">Foto produktu</div>
                   <p>70.99€</p>
@@ -55,25 +61,25 @@
               <h2>Novinky</h2>
               <div class="novinky-contents">
                 <div class="novinky-produkts">
-                  <a href="#" class="product-card-sm">
+                  <a href="pages/product-detail.html" class="product-card-sm">
                     <h3>Modré tričko</h3>
                     <div class="product-img-sm">Foto produktu</div>
                     <p>14.99€</p>
                   </a>
 
-                  <a href="./product-detail.html" class="product-card-sm">
+                  <a href="pages/product-detail.html" class="product-card-sm">
                     <h3>Zelené tričko</h3>
                     <div class="product-img-sm">Foto produktu</div>
                     <p>14.99€</p>
                   </a>
 
-                  <a href="./product-detail.html" class="product-card-sm">
+                  <a href="pages/product-detail.html" class="product-card-sm">
                     <h3>Žlté tričko</h3>
                     <div class="product-img-sm">Foto produktu</div>
                     <p>14.99€</p>
                   </a>
 
-                  <a href="./product-detail.html" class="product-card-sm">
+                  <a href="pages/product-detail.html" class="product-card-sm">
                     <h3>Oranžové tričko</h3>
                     <div class="product-img-sm">Foto produktu</div>
                     <p>14.99€</p>
@@ -85,7 +91,7 @@
             <div class="akcia-dna-section">
               <h2>Akcia dňa</h2>
               <div class="akcia-dna-contents">
-                <a href="./product-detail.html">
+                <a href="pages/product-detail.html">
                   <div class="akcia-dna-card">
                     <h3>Fialové tričko</h3>
                     <div class="sale-badge">-25%</div>
@@ -105,13 +111,8 @@
     </div>
   </body>
   <script>
-    async function loadComponent(id, file) {
-      const res = await fetch(file);
-      document.getElementById(id).innerHTML = await res.text();
-    }
-
-    loadComponent("header", "../header.html");
-    loadComponent("sidebar", "../sidebar.html");
+    loadComponent("header", "layout/header.html");
+    loadComponent("sidebar", "layout/sidebar.html");
   </script>
 </html>
 
@@ -149,10 +150,10 @@ main {
   margin-top: 10px;
 }
 
-.bestsellers-produkts {
+.bestsellers-products {
   display: flex;
   gap: 20px;
-  justify-content: space-between;
+  justify-content: baseline;
   flex-wrap: wrap;
 }
 

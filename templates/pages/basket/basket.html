@@ -3,7 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../layout.css" />
+    <script src="../../config.js"></script>
+    <script src="../../utils.js"></script>
+    <script>
+      loadBasePath(BASE_PATH);
+    </script>
+    <link rel="stylesheet" href="layout/layout.css" />
+    <link rel="stylesheet" href="variables.css" />
     <title>3čko</title>
   </head>
   <body>
@@ -14,17 +20,13 @@
 
       <main>
         <h1>Basket</h1>
+        <a href="pages/basket/basket_delivery_and_payment.html">Dalej</a>
       </main>
     </div>
   </body>
   <script>
-    async function loadComponent(id, file) {
-      const res = await fetch(file);
-      document.getElementById(id).innerHTML = await res.text();
-    }
-
-    loadComponent("header", "../header.html");
-    loadComponent("sidebar", "../sidebar.html");
+    loadComponent("header", "layout/header.html");
+    loadComponent("sidebar", "layout/sidebar.html");
   </script>
 </html>
 

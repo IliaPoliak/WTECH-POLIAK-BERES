@@ -3,8 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../layout.css" />
-    <link rel="stylesheet" href="auth.css" />
+    <script src="../../config.js"></script>
+    <script src="../../utils.js"></script>
+    <script>
+      loadBasePath(BASE_PATH);
+    </script>
+
+    <link rel="stylesheet" href="layout/layout.css" />
+    <link rel="stylesheet" href="variables.css" />
+    <link rel="stylesheet" href="pages/auth/auth.css" />
     <title>3čko</title>
   </head>
   <body>
@@ -31,7 +38,7 @@
         <div class="login-register-container">
           <p>Nemáte účet?</p>
 
-          <a href="./register.html" class="login-register-button"
+          <a href="pages/auth/register.html" class="login-register-button"
             >Registrovať sa</a
           >
         </div>
@@ -39,12 +46,7 @@
     </div>
   </body>
   <script>
-    async function loadComponent(id, file) {
-      const res = await fetch(file);
-      document.getElementById(id).innerHTML = await res.text();
-    }
-
-    loadComponent("header", "../header.html");
-    loadComponent("sidebar", "../sidebar.html");
+    loadComponent("header", "layout/header.html");
+    loadComponent("sidebar", "layout/sidebar.html");
   </script>
 </html>

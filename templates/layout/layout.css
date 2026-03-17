@@ -1,11 +1,3 @@
-:root {
-  --sidebar-width: 150px;
-  --header-hight: 100px;
-  --filter-width: 202px;
-  --header-padding: 10px;
-  --font: "Courier New", Courier, monospace;
-}
-
 body {
   display: flex;
   flex-direction: column;

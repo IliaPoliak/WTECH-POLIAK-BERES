@@ -3,15 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="../config.js"></script>
-    <script src="../utils.js"></script>
+    <script src="../../config.js"></script>
+    <script src="../../utils.js"></script>
     <script>
       loadBasePath(BASE_PATH);
     </script>
-
     <link rel="stylesheet" href="layout/layout.css" />
     <link rel="stylesheet" href="variables.css" />
-    <title>Product detail</title>
+    <title>3čko</title>
   </head>
   <body>
     <div id="header"></div>
@@ -20,21 +19,20 @@
       <div id="sidebar"></div>
 
       <main>
-        <h1>Product detail</h1>
-        <p>Detail produktu</p>
+        <h1>Doprava a paltba</h1>
+        <a href="pages/basket/basket.html">Spat</a>
+        <a href="pages/basket/basket_address.html">Dalej</a>
       </main>
     </div>
-
-    <script>
-      loadComponent("header", "layout/header.html");
-      loadComponent("sidebar", "layout/sidebar.html");
-    </script>
   </body>
+  <script>
+    loadComponent("header", "layout/header.html");
+    loadComponent("sidebar", "layout/sidebar.html");
+  </script>
 </html>
 
 <style>
   main {
-    padding: 30px;
-    padding-top: 0;
+    text-align: center;
   }
 </style>
