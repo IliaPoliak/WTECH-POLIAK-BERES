@@ -3,6 +3,19 @@ main {
   margin-left: calc(var(--sidebar-width) + var(--filter-width) + 25px);
 }
 
+.toggle-filters-button {
+  border: none;
+  background-color: #ddd;
+}
+
+.toggle-filters-button:hover {
+  background-color: #e6e6e6;
+}
+
+.toggle-filters-button:active {
+  background-color: #eee;
+}
+
 .category-filters {
   background-color: #eee;
   position: fixed;

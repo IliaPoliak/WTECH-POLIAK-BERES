@@ -30,3 +30,20 @@ function loadBasePath(path) {
   base.href = path;
   document.head.prepend(base);
 }
+
+function toggle_filters() {
+  const filters = document.querySelector(".category-filters");
+  const main = document.querySelector("main");
+
+  // Show filters
+  if (filters.style.display === "none") {
+    filters.style.display = "block";
+    main.style.marginLeft =
+      "calc(var(--sidebar-width) + var(--filter-width) + 25px)";
+  }
+  // Hide filters
+  else {
+    filters.style.display = "none";
+    main.style.marginLeft = "var(--sidebar-width)";
+  }
+}
