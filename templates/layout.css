@@ -26,7 +26,7 @@ a {
 .header {
   position: fixed;
   height: var(--header-hight);
-  width: 100vw;
+  width: 100%;
 
   background-color: #aaa;
   display: flex;
@@ -101,7 +101,7 @@ a {
   top: var(--header-hight);
   left: 0;
   width: var(--sidebar-width);
-  height: calc(100vh - var(--header-hight));
+  height: calc(100% - var(--header-hight));
   background-color: #aaa;
 
   display: flex;
