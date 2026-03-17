@@ -1,38 +1,81 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="../../config.js"></script>
-    <script src="../../utils.js"></script>
-    <script>
-      loadBasePath(BASE_PATH);
-    </script>
-    <link rel="stylesheet" href="layout/layout.css" />
-    <link rel="stylesheet" href="variables.css" />
-    <title>3čko</title>
-  </head>
-  <body>
-    <div id="header"></div>
-
-    <div class="main-content">
-      <div id="sidebar"></div>
-
-      <main>
-        <h1>Zadajte svoju adresu tu</h1>
-        <a href="pages/basket/basket_delivery_and_payment.html">Spat</a>
-        <a href="pages/basket/basket_payment_details.html">Dalej</a>
-      </main>
-    </div>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="../../config.js"></script>
+  <script src="../../utils.js"></script>
   <script>
-    loadComponent("header", "layout/header.html");
-    loadComponent("sidebar", "layout/sidebar.html");
+    loadBasePath(BASE_PATH);
   </script>
-</html>
+  <link rel="stylesheet" href="layout/layout.css" />
+  <link rel="stylesheet" href="variables.css" />
+  <link rel="stylesheet" href="pages/basket/basket_pages.css" />
+  <title>3čko</title>
+</head>
 
-<style>
-  main {
-    text-align: center;
-  }
-</style>
+<body>
+<div id="header"></div>
+
+<div class="main-content">
+  <div id="sidebar"></div>
+
+  <main class="basket-step-page">
+    <div class="basket-step-top">
+      <a class="basket-step-back-left" href="pages/basket/basket_delivery_and_payment.html">
+        ↩ zmeniť spôsob dopravy
+      </a>
+
+      <a class="basket-step-back-right" href="pages/index.html">
+        ↩ späť na prehliadávanie
+      </a>
+    </div>
+
+    <section class="basket-step-content">
+      <h1>Adresa</h1>
+
+      <form class="basket-address-form">
+        <div class="basket-form-row">
+          <label for="country">Krajina</label>
+          <input id="country" type="text" />
+        </div>
+
+        <div class="basket-form-row">
+          <label for="city">Mesto</label>
+          <input id="city" type="text" />
+        </div>
+
+        <div class="basket-form-row basket-form-row-short">
+          <label for="psc">PSČ</label>
+          <input id="psc" type="text" />
+        </div>
+
+        <div class="basket-form-row">
+          <label for="address">Adresa</label>
+          <input id="address" type="text" />
+        </div>
+
+        <div class="basket-form-row">
+          <label for="phone">Tel. č.</label>
+          <input id="phone" type="text" />
+        </div>
+      </form>
+
+      <div class="basket-step-bottom">
+        <a class="basket-step-next-btn" href="pages/basket/basket_payment_details.html">
+          Pokračovať k platobným údajom
+        </a>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div id="footer"></div>
+
+<script>
+  loadComponent("header", "layout/header.html");
+  loadComponent("sidebar", "layout/sidebar.html");
+  loadComponent("footer", "layout/footer.html");
+</script>
+</body>
+</html>

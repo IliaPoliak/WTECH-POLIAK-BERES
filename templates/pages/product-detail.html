@@ -1,35 +1,38 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="../config.js"></script>
-    <script src="../utils.js"></script>
-    <script>
-      loadBasePath(BASE_PATH);
-    </script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="../config.js"></script>
+  <script src="../utils.js"></script>
+  <script>
+    loadBasePath(BASE_PATH);
+  </script>
 
-    <link rel="stylesheet" href="layout/layout.css" />
-    <link rel="stylesheet" href="variables.css" />
-    <title>Product detail</title>
-  </head>
-  <body>
-    <div id="header"></div>
+  <link rel="stylesheet" href="layout/layout.css" />
+  <link rel="stylesheet" href="variables.css" />
+  <title>Product detail</title>
+</head>
+<body>
+<div id="header"></div>
 
-    <div class="main-content">
-      <div id="sidebar"></div>
+<div class="main-content">
+  <div id="sidebar"></div>
 
-      <main>
-        <h1>Product detail</h1>
-        <p>Detail produktu</p>
-      </main>
-    </div>
+  <main>
+    <h1>Product detail</h1>
+    <p>Detail produktu</p>
+  </main>
+</div>
 
-    <script>
-      loadComponent("header", "layout/header.html");
-      loadComponent("sidebar", "layout/sidebar.html");
-    </script>
-  </body>
+<div id="footer"></div>
+
+<script>
+  loadComponent("header", "layout/header.html");
+  loadComponent("sidebar", "layout/sidebar.html");
+  loadComponent("footer", "layout/footer.html");
+</script>
+</body>
 </html>
 
 <style>
