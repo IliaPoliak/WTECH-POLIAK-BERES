@@ -4,10 +4,12 @@ body {
   margin: 0;
   height: 100vh;
   font-family: var(--font);
+  background-color: var(--color-bg);
+  color: var(--color-text);
 }
 
 a {
-  color: black;
+  color: var(--color-text);
   text-decoration: none;
 }
 
@@ -19,16 +21,21 @@ a {
   position: fixed;
   height: var(--header-hight);
   width: 100%;
-
-  background-color: #aaa;
+  background-color: var(--color-header);
   display: flex;
   flex-direction: row;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-light);
+}
+
+.header a {
+  color: var(--color-text-light);
 }
 
 .logo {
   width: var(--sidebar-width);
   margin: 0;
-  background-color: #888;
+  background-color: var(--color-sidebar-dark);
   height: 100%;
 }
 
@@ -38,6 +45,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--color-text-light);
 }
 
 .header-inner {
@@ -65,22 +73,32 @@ a {
   height: 20px;
   margin-right: var(--header-padding);
   font-family: var(--font);
+  background-color: var(--color-input);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
 }
 
 .basket-button {
-  width: 100px;
-  border: none;
-  background-color: white;
+  width: 120px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-accent);
   font-size: 20px;
   font-family: var(--font);
 }
 
+.basket-button a {
+  color: var(--color-text-light);
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .basket-button:hover {
-  background-color: #eee;
+  background-color: var(--color-accent-hover);
 }
 
 .basket-button:active {
-  background-color: #ddd;
+  background-color: var(--color-sidebar-dark);
 }
 
 .main-content {
@@ -94,11 +112,11 @@ a {
   left: 0;
   width: var(--sidebar-width);
   height: calc(100% - var(--header-hight));
-  background-color: #aaa;
-
+  background-color: var(--color-sidebar);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border-right: 1px solid var(--color-border);
 }
 
 .category-selection {
@@ -121,15 +139,15 @@ main {
 .recommend-footer {
   margin-left: var(--sidebar-width);
   margin-top: 30px;
-  border: 1px solid #999;
-  background-color: #d3d3d3;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface-soft);
 }
 
 .recommend-footer h2 {
   margin: 0;
   padding: 12px 14px;
   font-size: 20px;
-  border-bottom: 1px solid #999;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .recommend-grid {
@@ -139,9 +157,9 @@ main {
 
 .recommend-card {
   display: block;
-  color: black;
+  color: var(--color-text);
   text-decoration: none;
-  border-right: 1px solid #999;
+  border-right: 1px solid var(--color-border);
 }
 
 .recommend-card:last-child {
@@ -154,6 +172,6 @@ main {
   align-items: center;
   justify-content: center;
   font-size: 18px;
-  background-color: #d9d9d9;
-  border-top: 1px solid #999;
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
 }
