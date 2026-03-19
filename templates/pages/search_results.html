@@ -11,6 +11,7 @@
 
   <link rel="stylesheet" href="layout/layout.css" />
   <link rel="stylesheet" href="variables.css" />
+  <link rel="stylesheet" href="pages/shop_pages.css" />
   <title>Search Results</title>
 </head>
 <body>
@@ -19,8 +20,40 @@
 <div class="main-content">
   <div id="sidebar"></div>
 
-  <main>
-    <h1>Search Results</h1>
+  <main class="search-results-page">
+    <div class="search-results-top">
+      <h1>Výsledky vyhľadávania</h1>
+      <p>Výsledok pre: <strong>Modré tričko</strong></p>
+    </div>
+
+    <section class="search-results-grid">
+      <a href="pages/product-detail.html" class="search-result-card">
+        <div class="search-result-top">
+          <h2>Modré tričko</h2>
+          <span>22,99€</span>
+        </div>
+        <div class="search-result-color">Modrá</div>
+        <div class="search-result-image">Fotka produktu</div>
+      </a>
+
+      <a href="pages/product-detail.html" class="search-result-card">
+        <div class="search-result-top">
+          <h2>Svetlomodré tričko</h2>
+          <span>19,99€</span>
+        </div>
+        <div class="search-result-color">Svetlomodrá</div>
+        <div class="search-result-image">Fotka produktu</div>
+      </a>
+
+      <a href="pages/product-detail.html" class="search-result-card">
+        <div class="search-result-top">
+          <h2>Tmavomodré tričko</h2>
+          <span>24,99€</span>
+        </div>
+        <div class="search-result-color">Tmavomodrá</div>
+        <div class="search-result-image">Fotka produktu</div>
+      </a>
+    </section>
   </main>
 </div>
 
@@ -33,10 +66,3 @@
 </script>
 </body>
 </html>
-
-<style>
-  main {
-    padding: 30px;
-    padding-top: 0;
-  }
-</style>

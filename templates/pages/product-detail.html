@@ -11,6 +11,7 @@
 
   <link rel="stylesheet" href="layout/layout.css" />
   <link rel="stylesheet" href="variables.css" />
+  <link rel="stylesheet" href="pages/shop_pages.css" />
   <title>Product detail</title>
 </head>
 <body>
@@ -19,9 +20,40 @@
 <div class="main-content">
   <div id="sidebar"></div>
 
-  <main>
-    <h1>Product detail</h1>
-    <p>Detail produktu</p>
+  <main class="product-detail-page">
+    <section class="product-detail-layout">
+      <div class="product-detail-image-box">
+        <div class="product-detail-image">Fotka produktu</div>
+      </div>
+
+      <div class="product-detail-info">
+        <h1>Modré tričko</h1>
+        <p class="product-detail-price">22,99€</p>
+        <p class="product-detail-color">Farba: Modrá</p>
+
+        <div class="product-detail-sizes">
+          <h2>Veľkosť</h2>
+          <div class="product-detail-size-options">
+            <button type="button" class="product-size-button">S</button>
+            <button type="button" class="product-size-button">M</button>
+            <button type="button" class="product-size-button">L</button>
+            <button type="button" class="product-size-button">XL</button>
+          </div>
+        </div>
+
+        <div class="product-detail-actions">
+          <button type="button" class="product-detail-cart-button">Pridať do košíka</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="product-detail-description">
+      <h2>Popis produktu</h2>
+      <p>
+        Modré tričko z príjemného materiálu na každodenné nosenie. Jednoduchý
+        dizajn, pohodlný strih a moderný vzhľad.
+      </p>
+    </section>
   </main>
 </div>
 
@@ -34,10 +66,3 @@
 </script>
 </body>
 </html>
-
-<style>
-  main {
-    padding: 30px;
-    padding-top: 0;
-  }
-</style>
