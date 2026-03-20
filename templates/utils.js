@@ -47,3 +47,29 @@ function toggle_filters() {
     main.style.marginLeft = "var(--sidebar-width)";
   }
 }
+
+function toggle_sidebar() {
+  const sidebar = document.querySelector(".sidebar");
+
+  // Show sidebar
+  if (sidebar.style.display === "none") {
+    sidebar.style.display = "flex";
+  }
+  // Hide sidebar
+  else {
+    sidebar.style.display = "none";
+  }
+}
+
+function toggle_searchbar() {
+  const searchbar = document.querySelector(".search2");
+
+  // Show searchbar
+  if (searchbar.style.display === "none") {
+    searchbar.style.display = "flex";
+  }
+  // Hide searchbar
+  else {
+    searchbar.style.display = "none";
+  }
+}
