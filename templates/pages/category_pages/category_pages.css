@@ -103,10 +103,42 @@ main {
   box-shadow: none;
 }
 
-.size-button:hover,
-.color-button:hover {
+.size-button:hover {
   background-color: var(--color-surface-soft);
   color: var(--color-text);
+}
+
+#black-color-button {
+  background-color: black;
+}
+#red-color-button {
+  background-color: red;
+}
+#orange-color-button {
+  background-color: orange;
+}
+#yellow-color-button {
+  background-color: yellow;
+}
+#green-color-button {
+  background-color: green;
+}
+#cyan-color-button {
+  background-color: cyan;
+}
+#blue-color-button {
+  background-color: blue;
+}
+#purple-color-button {
+  background-color: purple;
+}
+#pink-color-button {
+  background-color: pink;
+}
+.color-button:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.color-button:active {
 }
 
 .size-button:focus,
@@ -139,7 +171,7 @@ main {
   padding: 12px 20px;
   border: 1px solid var(--color-border);
   background-color: var(--color-accent);
-  color: var(--color-text);
+  color: var(--color-text-light);
   font-family: var(--font);
   font-size: 22px;
   cursor: pointer;

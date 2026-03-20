@@ -1,124 +1,129 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="../../config.js"></script>
-  <script src="../../utils.js"></script>
-  <script>
-    loadBasePath(BASE_PATH);
-  </script>
-  <link rel="stylesheet" href="layout/layout.css" />
-  <link rel="stylesheet" href="variables.css" />
-  <link rel="stylesheet" href="pages/basket/basket_pages.css" />
-  <title>3čko</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../../config.js"></script>
+    <script src="../../utils.js"></script>
+    <script>
+      loadBasePath(BASE_PATH);
+    </script>
+    <link rel="stylesheet" href="layout/layout.css" />
+    <link rel="stylesheet" href="variables.css" />
+    <link rel="stylesheet" href="pages/basket/basket_pages.css" />
+    <title>3čko</title>
+  </head>
 
-<body>
-<div id="header"></div>
+  <body>
+    <div id="header"></div>
 
-<div class="main-content">
-  <div id="sidebar"></div>
+    <div class="main-content">
+      <div id="sidebar"></div>
 
-  <main class="basket-page">
-    <section class="basket-header">
-      <h1>Prehľad košíka</h1>
-      <a class="basket-back-link" href="pages/index.html">↩ späť na prehliadanie</a>
-    </section>
+      <main class="basket-page">
+        <section class="basket-header">
+          <h1>Prehľad košíka</h1>
+          <a class="basket-back-link" href="pages/index.html"
+            >↩ späť na prehliadanie</a
+          >
+        </section>
 
-    <section class="basket-items">
-      <article class="basket-item">
-        <button class="basket-remove-btn">x</button>
+        <section class="basket-items">
+          <article class="basket-item">
+            <button class="basket-remove-btn">x</button>
 
-        <h2 class="basket-item-title">Modré Tričko</h2>
+            <h2 class="basket-item-title">Modré Tričko</h2>
 
-        <div class="basket-item-content">
-          <a href="pages/product-detail.html" class="basket-item-image-box">
-            <div class="basket-item-image">„Fotka produktu“</div>
-          </a>
+            <div class="basket-item-content">
+              <a href="pages/product-detail.html" class="basket-item-image-box">
+                <div class="basket-item-image">„Fotka produktu“</div>
+              </a>
 
-          <div class="basket-item-details">
-            <div class="basket-quantity-row">
-              <span class="basket-quantity-text">Množstvo: 2</span>
+              <div class="basket-item-details">
+                <div class="basket-quantity-row">
+                  <span class="basket-quantity-text">Množstvo: 2</span>
 
-              <div class="basket-quantity-buttons">
-                <button type="button">+</button>
-                <button type="button">-</button>
+                  <div class="basket-quantity-buttons">
+                    <button type="button">+</button>
+                    <button type="button">-</button>
+                  </div>
+                </div>
+
+                <div class="basket-price-box">Cena: (2 * 22,99)</div>
               </div>
             </div>
+          </article>
 
-            <div class="basket-price-box">Cena: (2 * 22,99)</div>
-          </div>
-        </div>
-      </article>
+          <article class="basket-item">
+            <button class="basket-remove-btn">x</button>
 
-      <article class="basket-item">
-        <button class="basket-remove-btn">x</button>
+            <h2 class="basket-item-title">Názov Produktu</h2>
 
-        <h2 class="basket-item-title">Názov Produktu</h2>
+            <div class="basket-item-content">
+              <a href="pages/product-detail.html" class="basket-item-image-box">
+                <div class="basket-item-image">„Fotka produktu“</div>
+              </a>
 
-        <div class="basket-item-content">
-          <a href="pages/product-detail.html" class="basket-item-image-box">
-            <div class="basket-item-image">„Fotka produktu“</div>
-          </a>
+              <div class="basket-item-details">
+                <div class="basket-quantity-row">
+                  <span class="basket-quantity-text">Množstvo: X</span>
 
-          <div class="basket-item-details">
-            <div class="basket-quantity-row">
-              <span class="basket-quantity-text">Množstvo: X</span>
+                  <div class="basket-quantity-buttons">
+                    <button type="button">+</button>
+                    <button type="button">-</button>
+                  </div>
+                </div>
 
-              <div class="basket-quantity-buttons">
-                <button type="button">+</button>
-                <button type="button">-</button>
+                <div class="basket-price-box">Cena: (X * Cena)</div>
               </div>
             </div>
+          </article>
 
-            <div class="basket-price-box">Cena: (X * Cena)</div>
-          </div>
-        </div>
-      </article>
+          <article class="basket-item">
+            <button class="basket-remove-btn">x</button>
 
-      <article class="basket-item">
-        <button class="basket-remove-btn">x</button>
+            <h2 class="basket-item-title">Názov Produktu</h2>
 
-        <h2 class="basket-item-title">Názov Produktu</h2>
+            <div class="basket-item-content">
+              <a href="pages/product-detail.html" class="basket-item-image-box">
+                <div class="basket-item-image">„Fotka produktu“</div>
+              </a>
 
-        <div class="basket-item-content">
-          <a href="pages/product-detail.html" class="basket-item-image-box">
-            <div class="basket-item-image">„Fotka produktu“</div>
-          </a>
+              <div class="basket-item-details">
+                <div class="basket-quantity-row">
+                  <span class="basket-quantity-text">Množstvo: X</span>
 
-          <div class="basket-item-details">
-            <div class="basket-quantity-row">
-              <span class="basket-quantity-text">Množstvo: X</span>
+                  <div class="basket-quantity-buttons">
+                    <button type="button">+</button>
+                    <button type="button">-</button>
+                  </div>
+                </div>
 
-              <div class="basket-quantity-buttons">
-                <button type="button">+</button>
-                <button type="button">-</button>
+                <div class="basket-price-box">Cena: (X * Cena)</div>
               </div>
             </div>
+          </article>
+        </section>
 
-            <div class="basket-price-box">Cena: (X * Cena)</div>
-          </div>
-        </div>
-      </article>
-    </section>
+        <section class="basket-summary">
+          <div class="basket-total">Spolu: XY</div>
 
-    <section class="basket-summary">
-      <div class="basket-total">Spolu: XY</div>
+          <a
+            class="basket-next-btn"
+            href="pages/basket/basket_delivery_and_payment.html"
+          >
+            Pokračovať k doprave a platbe
+          </a>
+        </section>
+      </main>
+    </div>
 
-      <a class="basket-next-btn" href="pages/basket/basket_delivery_and_payment.html">
-        Pokračovať k doprave a platbe
-      </a>
-    </section>
-  </main>
-</div>
+    <div id="footer"></div>
 
-<div id="footer"></div>
-
-<script>
-  loadComponent("header", "layout/header.html");
-  loadComponent("sidebar", "layout/sidebar.html");
-  loadComponent("footer", "layout/footer.html");
-</script>
-</body>
+    <script>
+      loadComponent("header", "layout/header.html");
+      loadComponent("sidebar", "layout/sidebar.html");
+      loadComponent("footer", "layout/footer.html");
+    </script>
+  </body>
 </html>

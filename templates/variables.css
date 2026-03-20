@@ -2,23 +2,23 @@
   --sidebar-width: 150px;
   --header-hight: 100px;
   --filter-width: 220px;
-  --header-padding: 10px;
+  --header-padding: 15px;
   --font: "Courier New", Courier, monospace;
-
-  --color-bg: #f3f3f3;
-  --color-surface: #ffffff;
-  --color-surface-soft: #ebebeb;
-
-  --color-header: #0f0f10;
-  --color-sidebar: #d9d9d9;
-  --color-sidebar-dark: #2f3338;
 
   --color-accent: #7e95a8;
   --color-accent-hover: #6d8498;
 
+  --color-bg: #fff;
+  --color-surface: #fff;
+  --color-surface-soft: #eee;
+
+  --color-header: #ddd;
+  --color-sidebar: #ddd;
+  --color-sidebar-dark: #7e95a8;
+
   --color-text: #222222;
   --color-text-light: #ffffff;
 
-  --color-border: #d4d4d4;
+  --color-border: #bbb;
   --color-input: #ffffff;
 }

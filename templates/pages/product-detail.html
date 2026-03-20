@@ -1,68 +1,70 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="../config.js"></script>
-  <script src="../utils.js"></script>
-  <script>
-    loadBasePath(BASE_PATH);
-  </script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../config.js"></script>
+    <script src="../utils.js"></script>
+    <script>
+      loadBasePath(BASE_PATH);
+    </script>
 
-  <link rel="stylesheet" href="layout/layout.css" />
-  <link rel="stylesheet" href="variables.css" />
-  <link rel="stylesheet" href="pages/shop_pages.css" />
-  <title>Product detail</title>
-</head>
-<body>
-<div id="header"></div>
+    <link rel="stylesheet" href="layout/layout.css" />
+    <link rel="stylesheet" href="variables.css" />
+    <link rel="stylesheet" href="pages/shop_pages.css" />
+    <title>Product detail</title>
+  </head>
+  <body>
+    <div id="header"></div>
 
-<div class="main-content">
-  <div id="sidebar"></div>
+    <div class="main-content">
+      <div id="sidebar"></div>
 
-  <main class="product-detail-page">
-    <section class="product-detail-layout">
-      <div class="product-detail-image-box">
-        <div class="product-detail-image">Fotka produktu</div>
-      </div>
-
-      <div class="product-detail-info">
-        <h1>Modré tričko</h1>
-        <p class="product-detail-price">22,99€</p>
-        <p class="product-detail-color">Farba: Modrá</p>
-
-        <div class="product-detail-sizes">
-          <h2>Veľkosť</h2>
-          <div class="product-detail-size-options">
-            <button type="button" class="product-size-button">S</button>
-            <button type="button" class="product-size-button">M</button>
-            <button type="button" class="product-size-button">L</button>
-            <button type="button" class="product-size-button">XL</button>
+      <main class="product-detail-page">
+        <section class="product-detail-layout">
+          <div class="product-detail-image-box">
+            <div class="product-detail-image">Fotka produktu</div>
           </div>
-        </div>
 
-        <div class="product-detail-actions">
-          <button type="button" class="product-detail-cart-button">Pridať do košíka</button>
-        </div>
-      </div>
-    </section>
+          <div class="product-detail-info">
+            <h1>Modré tričko</h1>
+            <p class="product-detail-price">22,99€</p>
+            <p class="product-detail-color">Farba: Modrá</p>
 
-    <section class="product-detail-description">
-      <h2>Popis produktu</h2>
-      <p>
-        Modré tričko z príjemného materiálu na každodenné nosenie. Jednoduchý
-        dizajn, pohodlný strih a moderný vzhľad.
-      </p>
-    </section>
-  </main>
-</div>
+            <div class="product-detail-sizes">
+              <h2>Veľkosť</h2>
+              <div class="product-detail-size-options">
+                <button type="button" class="product-size-button">S</button>
+                <button type="button" class="product-size-button">M</button>
+                <button type="button" class="product-size-button">L</button>
+                <button type="button" class="product-size-button">XL</button>
+              </div>
+            </div>
 
-<div id="footer"></div>
+            <div class="product-detail-actions">
+              <button type="button" class="product-detail-cart-button">
+                Pridať do košíka
+              </button>
+            </div>
+          </div>
+        </section>
 
-<script>
-  loadComponent("header", "layout/header.html");
-  loadComponent("sidebar", "layout/sidebar.html");
-  loadComponent("footer", "layout/footer.html");
-</script>
-</body>
+        <section class="product-detail-description">
+          <h2>Popis produktu</h2>
+          <p>
+            Modré tričko z príjemného materiálu na každodenné nosenie.
+            Jednoduchý dizajn, pohodlný strih a moderný vzhľad.
+          </p>
+        </section>
+      </main>
+    </div>
+
+    <div id="footer"></div>
+
+    <script>
+      loadComponent("header", "layout/header.html");
+      loadComponent("sidebar", "layout/sidebar.html");
+      loadComponent("footer", "layout/footer.html");
+    </script>
+  </body>
 </html>

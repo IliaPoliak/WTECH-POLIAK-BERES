@@ -8,6 +8,11 @@ body {
   color: var(--color-text);
 }
 
+.header,
+.sidebar {
+  z-index: 100;
+}
+
 a {
   color: var(--color-text);
   text-decoration: none;
@@ -24,12 +29,12 @@ a {
   background-color: var(--color-header);
   display: flex;
   flex-direction: row;
-  border-bottom: 1px solid var(--color-border);
-  color: var(--color-text-light);
+  /*border-bottom: 1px solid var(--color-border);*/
+  color: var(--color-text);
 }
 
 .header a {
-  color: var(--color-text-light);
+  color: var(--color-text);
 }
 
 .logo {
@@ -76,6 +81,7 @@ a {
   background-color: var(--color-input);
   color: var(--color-text);
   border: 1px solid var(--color-border);
+  padding: 3px 5px;
 }
 
 .basket-button {
@@ -116,7 +122,7 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-right: 1px solid var(--color-border);
+  /*border-right: 1px solid var(--color-border);*/
 }
 
 .category-selection {

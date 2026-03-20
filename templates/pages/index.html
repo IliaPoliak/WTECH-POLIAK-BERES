@@ -20,91 +20,107 @@
 
         <main>
           <section class="bestsellers-section">
-            <h2>Bestsellery</h2>
-            <div class="bestsellers-content">
-              <div class="bestsellers-products">
-                <a href="pages/product-detail.html" class="product-card">
+            <h1>Bestsellery</h1>
+            <div class="bestsellers-contents">
+
+              <a href="pages/product-detail.html">
+                <article class="product-card">
                   <h3>Biele tričko</h3>
-                  <div class="product_img">Foto produktu</div>
+                  <img src="assets/blue_t_shirt.png" alt="Product Photo"></img>
                   <p>19.99€</p>
-                </a>
+                </article>
+              </a>
 
-                <a href="pages/product-detail.html" class="product-card">
+              <a href="pages/product-detail.html">
+                <article class="product-card">
                   <h3>Čierne tričko</h3>
-                  <div class="product_img">Foto produktu</div>
+                  <img src="assets/blue_t_shirt.png" alt="Product Photo"></img>
                   <p>17.99€</p>
-                </a>
+                </article>
+              </a>
 
-                <a href="pages/product-detail.html" class="product-card">
+              <a href="pages/product-detail.html">
+                <article class="product-card">
                   <h3>Modré tričko</h3>
-                  <div class="product_img">Foto produktu</div>
+                  <img src="assets/blue_t_shirt.png" alt="Product Photo"></img>
                   <p>18.99€</p>
-                </a>
+                </article>
+              </a>
 
-                <a href="pages/product-detail.html" class="product-card">
+              <a href="pages/product-detail.html">
+                <article class="product-card">
                   <h3>Zelené tričko</h3>
-                  <div class="product_img">Foto produktu</div>
+                  <img src="assets/blue_t_shirt.png" alt="Product Photo"></img>                  
                   <p>16.99€</p>
-                </a>
+                </article>
+              </a>
 
-                <a href="pages/product-detail.html" class="product-card">
+              <a href="pages/product-detail.html">
+                <article class="product-card">
                   <h3>Premium mikina</h3>
-                  <div class="product_img">Foto produktu</div>
+                  <img src="assets/blue_t_shirt.png" alt="Product Photo"></img>
                   <p>70.99€</p>
-                </a>
-              </div>
+                </article>
+              </a>
             </div>
           </section>
 
-          <section class="homepage-bottom">
-            <div class="novinky-section">
-              <h2>Novinky</h2>
+          <section class="homepage-bottom-section">
+            <section class="novinky-section">
+              <h1>Novinky</h1>
               <div class="novinky-contents">
-                <div class="novinky-produkts">
-                  <a href="pages/product-detail.html" class="product-card-sm">
+                <a href="pages/product-detail.html">
+                  <article class="product-card">
                     <h3>Modré tričko</h3>
-                    <div class="product-img-sm">Foto produktu</div>
+                    <img src="assets/blue_t_shirt.png" alt="Product Photo"></img>
                     <p>14.99€</p>
-                  </a>
+                  </article>
+                </a>
 
-                  <a href="pages/product-detail.html" class="product-card-sm">
+                <a href="pages/product-detail.html">
+                  <article class="product-card">
                     <h3>Zelené tričko</h3>
-                    <div class="product-img-sm">Foto produktu</div>
+                    <img src="assets/blue_t_shirt.png" alt="Product Photo"></img>
                     <p>14.99€</p>
-                  </a>
+                  </article>
+                </a>
 
-                  <a href="pages/product-detail.html" class="product-card-sm">
+                <a href="pages/product-detail.html">
+                  <article class="product-card">  
                     <h3>Žlté tričko</h3>
-                    <div class="product-img-sm">Foto produktu</div>
+                    <img src="assets/blue_t_shirt.png" alt="Product Photo"></img>
                     <p>14.99€</p>
-                  </a>
+                  </article>
+                </a>
 
-                  <a href="pages/product-detail.html" class="product-card-sm">
+                <a href="pages/product-detail.html">
+                  <article class="product-card">
                     <h3>Oranžové tričko</h3>
-                    <div class="product-img-sm">Foto produktu</div>
+                    <img src="assets/blue_t_shirt.png" alt="Product Photo"></img>
                     <p>14.99€</p>
-                  </a>
-                </div>
+                  </article>
+                </a>
               </div>
-            </div>
+            </section>
 
-            <div class="akcia-dna-section">
-              <h2>Akcia dňa</h2>
+            <section class="akcia-dna-section">
+              <h1>Akcia dňa</h1>
               <div class="akcia-dna-contents">
                 <a href="pages/product-detail.html">
-                  <div class="akcia-dna-card">
-                    <h3>Fialové tričko</h3>
-                    <div class="sale-badge">-25%</div>
-                    <div class="akcia-dna-product-img">Foto produktu</div>
-
-                    <div class="akcia-dna-prices">
+                  <article class="akcia-dna-product-card">
+                    <h2>Fialové tričko</h2>
+                    <div class="akcia-dna-img-section">
+                      <div class="sale-badge">-25%</div>
+                      <img src="assets/blue_t_shirt.png" alt="Product Photo"></img>
+                    </div>
+                    <div class="akcia-dna-price-section">
                       <span class="old-price">14.99€</span>
                       <span class="new-price">10.99€</span>
                     </div>
-                  </div>
+                  </article>
                 </a>
               </div>
-            </div>
+            </section>
           </section>
         </main>
       </main>
@@ -118,167 +134,176 @@
 
 
 <style>
-main {
+  /* General Layout */
+  main {
     padding: 30px;
     padding-top: 0;
-}
+  }
 
-.bestsellers-section {
-  margin-bottom: 40px;
-}
+  .bestsellers-section {
+    
+  }
 
-.bestsellers-content {
-  min-height: 120px;
-  padding: 20px;
-  margin-top: 10px;
-}
+  .homepage-bottom-section {
+    display: flex;
+    flex-wrap: wrap;
+  }
 
-.homepage-bottom {
-  display: flex;
-  gap: 30px;
-}
+  .novinky-section {
+    flex: 1;
 
-.novinky-section,
-.akcia-dna-section {
-  flex: 1;
-}
+  }
 
-.novinky-contents,
-.akcia-dna-contents {
-  min-height: 250px;
-  padding: 20px;
-  margin-top: 10px;
-}
+  .akcia-dna-section {
+    flex: 1;
+    
+  }
 
-.bestsellers-products {
-  display: flex;
-  gap: 20px;
-  justify-content: baseline;
-  flex-wrap: wrap;
-}
+  /* Bestsellers section */
+  .bestsellers-section > h1 {
 
-.product-card {
-  width: 180px;
-  min-height: 220px;
-  border: 1px solid #666;
-  border-radius: 20px;
-  padding: 15px;
-  text-decoration: none;
-  color: black;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: white;
-}
+  }
 
-.product_img {
-  width: 120px;
-  height: 120px;
-  border: 1px solid #999;
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
+  .bestsellers-contents {
+    display: flex;
+    flex-wrap: wrap;
+  }
 
-.product-card h3 {
-  font-size: 20px;
-  text-align: center;
-  margin: 10px 0;
-}
+  /* Novinky section */
+  .novinky-section > h1 {
 
-.product-card p {
-  font-size: 18px;
-  margin: 0;
-}
+  }
 
-.novinky-produkts {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
+  .novinky-contents {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
-.product-card-sm {
-  border: 1px solid #666;
-  border-radius: 20px;
-  padding: 15px;
-  text-decoration: none;
-  color: black;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: white;
-}
+  /* Product card */
+  .product-card {
+    width: 180px;
+    margin: 20px;
+    border: 1px solid #666;
+    border-radius: 20px;
+    text-align: center;
+  }
 
-.product-img-sm {
-  width: 90px;
-  height: 90px;
-  border: 1px solid #999;
-  margin: 10px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
+  .product-card:hover {
+    background-color: #eee;
+  }
 
-.product-card-sm h3 {
-  font-size: 18px;
-  text-align: center;
-  margin: 0;
-}
+  .product-card:active {
+    background-color: #ddd;
+  }
 
-.product-card-sm p {
-  font-size: 16px;
-  margin: 0;
-}
+  .product-card > h3 {
+    padding: 0 15px;
 
-.akcia-dna-card {
-  border: 1px solid #666;
-  border-radius: 25px;
-  padding: 20px;
-  background-color: white;
-  text-align: center;
-  min-height: 320px;
-  position: relative;
-}
+    /* Controlls the product names, for consistant height */
+    height: 2em;
+    line-height: 1em;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
 
-.sale-badge {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background-color: #bbb;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 28px;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
+  .product-card > img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+  }
 
-.akcia-dna-product-img {
-  height: 180px;
-  border: 1px solid #999;
-  margin-top: 20px;
-  margin-bottom: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
+  .product-card > p {
+    padding: 0 15px;
+    
+  }
 
-.akcia-dna-prices {
-  width: 70%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 28px;
-}
-.old-price {
-  text-decoration: line-through;
-  color: #555;
-}
+  /* Akcia Dna section */
+  .akcia-dna-section > h1 {
 
+  }
+
+  .akcia-dna-contents {
+     display: flex;
+     justify-content: center;
+     width: 80%;
+  }
+
+  /* Akcia Dna product card */
+  .akcia-dna-product-card {
+      border: 1px solid #666;
+      border-radius: 25px;
+      text-align: center;
+      margin: 20px;
+  }
+
+  .akcia-dna-product-card:hover {
+    background-color: #eee;
+  }
+
+  .akcia-dna-product-card:active {
+    background-color: #ddd;
+  }
+
+
+  .akcia-dna-product-card > h2 {
+    padding: 15px 0;
+  }
+
+  .akcia-dna-img-section {
+    position: relative;
+    z-index: 0;
+  }
+
+  .sale-badge {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+
+      background-color: green;
+      color: white;
+      font-weight: bold;
+      
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+
+  }
+
+  .akcia-dna-img-section > img{
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+
+  }
+
+  .akcia-dna-price-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+
+    font-size: 28px;
+    padding: 15px 0;
+
+  }
+  
+  .old-price {
+    text-decoration: line-through;
+    color: #555;
+
+  }
+
+  .new-price {
+    color: black;
+    font-weight: bold;
+  }
 </style>
