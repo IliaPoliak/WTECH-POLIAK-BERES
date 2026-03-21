@@ -22,7 +22,7 @@
       <main>
         <h1>Registrácia</h1>
 
-        <div>
+        <form>
           <div class="form-row">
             <label for="register-name">Meno</label>
             <input type="text" id="register-name" />
@@ -33,7 +33,7 @@
             <input type="text" id="register-surname" />
           </div>
 
-          <div class="form-row form-row-wide">
+          <div class="form-row">
             <label for="register-email">e-mail</label>
             <input type="email" id="register-email" />
           </div>
@@ -42,11 +42,17 @@
             <label for="register-password">Heslo</label>
             <input type="password" id="register-password" />
           </div>
-        </div>
 
-        <a href="pages/auth/register.html" class="register-submit-button"
-          >Registrovať sa</a
-        >
+          <button type="submit" class="submit-button">Registrovať sa</button>
+        </form>
+
+        <div class="empty-space"></div>
+
+        <div class="redirect-link-container">
+          <p>Nemáte účet?</p>
+
+          <a href="pages/auth/login.html" class="redirect-link">Prihlasenie</a>
+        </div>
       </main>
     </div>
   </body>

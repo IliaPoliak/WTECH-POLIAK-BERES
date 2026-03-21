@@ -1,10 +1,16 @@
 main {
-  padding: 30px;
-  padding-top: 0;
+  padding: 0 30px;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - var(--header-hight));
 }
 
 main h1 {
   margin-bottom: 30px;
+}
+
+form {
+  font-size: 18px;
 }
 
 .form-row {
@@ -15,10 +21,9 @@ main h1 {
 }
 
 .form-row label {
-  width: 120px;
+  width: 150px;
   background-color: var(--color-surface-soft);
-  padding: 10px 15px;
-  font-size: 18px;
+  padding: 10px 0;
   text-align: center;
   border: 1px solid var(--color-border);
   color: var(--color-text);
@@ -31,7 +36,6 @@ main h1 {
   background-color: var(--color-input);
   color: var(--color-text);
   font-family: var(--font);
-  font-size: 18px;
   padding: 0 10px;
 }
 
@@ -39,39 +43,92 @@ main h1 {
   width: 450px;
 }
 
-.login-register-container {
-  margin-top: 30px;
+.submit-button {
+  background-color: var(--color-accent);
+  padding: 8px 15px;
+  color: var(--color-text-light);
+  text-decoration: none;
+  font-size: 18px;
+  border: 1px solid var(--color-border);
+  font: var(--font);
+  width: 185px;
+  margin-left: 172px;
+  margin-top: 10px;
+}
+
+.submit-button:hover {
+  background-color: var(--color-accent-hover);
+}
+
+.empty-space {
+  flex: 1;
+}
+
+.redirect-link-container {
+  margin-left: 172px;
+  width: 183px;
   font-size: 18px;
   text-align: center;
-  max-width: 600px;
+  font-weight: bold;
+  padding-bottom: 30px;
 }
 
-.login-register-button {
-  display: inline-block;
-  background-color: var(--color-accent);
-  padding: 8px 15px;
-  color: var(--color-text-light);
-  text-decoration: none;
-  margin-top: -10px;
-  border: 1px solid var(--color-border);
+.redirect-link-container > p {
 }
 
-.login-register-button:hover {
-  background-color: var(--color-accent-hover);
+.redirect-link {
+  color: blue;
 }
 
-.register-submit-button {
-  display: inline-block;
-  margin-top: 20px;
-  margin-left: 200px;
-  background-color: var(--color-accent);
-  padding: 8px 15px;
-  color: var(--color-text-light);
-  text-decoration: none;
-  font-size: 18px;
-  border: 1px solid var(--color-border);
+.redirect-link:hover {
+  text-decoration: underline;
 }
 
-.register-submit-button:hover {
-  background-color: var(--color-accent-hover);
+@media (max-width: 750px) {
+  main {
+    text-align: center;
+    align-items: center;
+    padding: 0;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-row {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-bottom: 15px;
+    gap: 0;
+  }
+
+  .form-row label {
+    width: 340px;
+    border-bottom: none;
+  }
+
+  .form-row input {
+    border-top: none;
+  }
+
+  .submit-button {
+    margin-left: 0;
+  }
+
+  .redirect-link-container {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .form-row label {
+    width: 90vw;
+  }
+
+  .form-row input {
+    width: calc(90vw - 20px);
+  }
 }
