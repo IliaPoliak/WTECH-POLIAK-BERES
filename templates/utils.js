@@ -12,13 +12,12 @@ async function loadProducts(category) {
   data[category].forEach((product) => {
     const item = document.createElement("div");
     item.innerHTML = `
-              <a href="pages/product-detail.html" class="category-product-card">
-                <div class="category-card-top">
-                  <h3>${product.name}</h3>
-                  <span class="category-price">${product.price}</span>
-                </div>
-                <div class="category-color">${product.color}</div>
-                <div class="category-image">Fotka produktu</div>
+              <a href="pages/product-detail.html">
+                <article class="product-card">
+                    <h3>${product.name}</h3>
+                    <img src="assets/blue_t_shirt.png" alt="Product Photo"></img>
+                    <p>${product.price}</p>
+                </article>
               </a>
           `;
     container[0].appendChild(item);
@@ -35,16 +34,24 @@ function toggle_filters() {
   const filters = document.querySelector(".category-filters");
   const main = document.querySelector("main");
 
+  const width = window.innerWidth;
+
   // Show filters
   if (filters.style.display === "none") {
     filters.style.display = "block";
+
+    // Check if sidebar is shown and calculate margin left for main
     main.style.marginLeft =
-      "calc(var(--sidebar-width) + var(--filter-width) + 25px)";
+      width > 655
+        ? "calc(var(--sidebar-width) + var(--filter-width) + 25px)" // if sidebar is shown
+        : "calc(var(--filter-width) + 25px)";
   }
   // Hide filters
   else {
     filters.style.display = "none";
-    main.style.marginLeft = "var(--sidebar-width)";
+
+    // Check if sidebar is shown and calculate margin left for main
+    main.style.marginLeft = width > 655 ? "var(--sidebar-width)" : "0";
   }
 }
 
