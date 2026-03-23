@@ -12,8 +12,6 @@
 }
 
 .product-detail-image-box {
-  width: 420px;
-  min-height: 420px;
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   display: flex;
@@ -22,6 +20,12 @@
 }
 
 .product-detail-image {
+  height: 420px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+
   font-size: 26px;
   color: var(--color-text);
 }
@@ -202,9 +206,8 @@
 }
 
 @media (max-width: 500px) {
-  .product-detail-image-box {
-    width: 85vw;
-    min-height: 85vw;
+  .product-detail-image {
+    height: 85vw;
   }
 
   .product-detail-info {
