@@ -272,4 +272,8 @@ main {
     border: 1px solid var(--color-border);
     border-radius: 5px;
   }
+
+  .recommend-footer {
+    margin-left: 0;
+  }
 }

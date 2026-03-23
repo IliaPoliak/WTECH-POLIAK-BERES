@@ -189,3 +189,30 @@
   padding: 20px;
   min-height: 160px;
 }
+
+@media (max-width: 960px) {
+  .product-detail-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-detail-info {
+    width: 420px;
+  }
+}
+
+@media (max-width: 500px) {
+  .product-detail-image-box {
+    width: 85vw;
+    min-height: 85vw;
+  }
+
+  .product-detail-info {
+    width: 85vw;
+  }
+
+  .product-detail-page {
+    padding: 7.5px;
+    padding-top: 20px;
+  }
+}
