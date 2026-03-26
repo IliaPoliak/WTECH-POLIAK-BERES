@@ -111,34 +111,41 @@ main {
 #black-color-button {
   background-color: black;
 }
+
 #red-color-button {
   background-color: red;
 }
+
 #orange-color-button {
   background-color: orange;
 }
+
 #yellow-color-button {
   background-color: yellow;
 }
+
 #green-color-button {
   background-color: green;
 }
+
 #cyan-color-button {
   background-color: cyan;
 }
+
 #blue-color-button {
   background-color: blue;
 }
+
 #purple-color-button {
   background-color: purple;
 }
+
 #pink-color-button {
   background-color: pink;
 }
+
 .color-button:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-.color-button:active {
 }
 
 .size-button:focus,
@@ -281,8 +288,6 @@ main {
 
 .product-card > h3 {
   padding: 0 15px;
-
-  /* Controlls the product names, for consistant height */
   height: 2em;
   line-height: 1em;
   overflow: hidden;
@@ -308,11 +313,10 @@ main {
   }
 
   main {
-    margin-left: calc(var(--sidebar-width));
+    margin-left: var(--sidebar-width);
   }
 }
 
-/* styles for hidden sidebar */
 @media (max-width: 655px) {
   .category-filters {
     top: var(--header2-hight);
@@ -322,6 +326,13 @@ main {
 
   main {
     margin-left: 0;
+  }
+}
+
+@media (max-width: 503px) {
+  .product-card {
+    width: 140px;
+    margin: 5px;
   }
 }
 

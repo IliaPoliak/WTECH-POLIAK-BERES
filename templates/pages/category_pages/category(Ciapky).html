@@ -1,50 +1,211 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="../../config.js"></script>
-    <script src="../../utils.js"></script>
-    <script>
-      loadBasePath(BASE_PATH);
-    </script>
-    <link rel="stylesheet" href="layout/layout.css" />
-    <link rel="stylesheet" href="variables.css" />
-    <link rel="stylesheet" href="pages/category_pages/category_pages.css" />
-    <title>Category - Čiapky</title>
-  </head>
-  <body>
-    <div id="header"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="../../utils.js"></script>
 
-    <div class="main-content">
-      <div id="sidebar"></div>
+  <link rel="stylesheet" href="../../layout/layout.css" />
+  <link rel="stylesheet" href="../../variables.css" />
+  <link rel="stylesheet" href="category_pages.css" />
+  <title>Category - Čiapky</title>
+</head>
+<body>
+<header class="header">
+  <h1 class="logo"><a href="../index.html">3čko</a></h1>
 
-      <main>
-        <div id="filters"></div>
+  <div class="header-inner">
+    <nav class="nav hover-underline">
+      <a href="../auth/login.html">Prihlasenie</a>
+      <div>|</div>
+      <a href="../auth/register.html">Registracia</a>
+    </nav>
 
-        <section class="category-content">
-          <div class="category-top">
-            <h1>Čiapky</h1>
-            <div id="sort-box"></div>
-          </div>
-
-          <div class="category-products-grid"></div>
-
-          <div id="pagination"></div>
-        </section>
-      </main>
+    <div class="header-inner-right">
+      <form action="../search_results.html">
+        <input class="searchbar" type="text" placeholder="vyhladat..." />
+      </form>
+      <button class="basket-button">
+        <a href="../basket/basket.html">Kosik🧺</a>
+      </button>
     </div>
+  </div>
+</header>
 
-    <script>
-      loadComponent("header", "layout/header.html");
-      loadComponent("sidebar", "layout/sidebar.html");
-      loadComponent("filters", "pages/category_pages/category_filters.html");
-      loadComponent("sort-box", "pages/category_pages/category_sortbox.html");
-      loadComponent(
-        "pagination",
-        "pages/category_pages/category_pagination.html",
-      );
-      loadProducts("ciapky");
-    </script>
-  </body>
+<header class="header2">
+  <div class="header2-inner-left">
+    <button onclick="toggle_sidebar()">&nbsp;☰&nbsp;</button>
+    <button>
+      <a href="../auth/login.html">👤</a>
+    </button>
+  </div>
+
+  <h1 class="logo"><a href="../index.html">3čko</a></h1>
+
+  <div class="header2-inner-right">
+    <button onclick="toggle_searchbar()">🔍</button>
+    <button>
+      <a href="../basket/basket.html">🛒</a>
+    </button>
+  </div>
+</header>
+
+<div class="search2">
+  <form action="../search_results.html">
+    <input type="text" placeholder="vyhladat..." />
+  </form>
+</div>
+
+<div class="main-content">
+  <aside class="sidebar">
+    <ul class="category-selection hover-underline">
+      <li><a href="category(Tricka).html">Tričká</a></li>
+      <li><a href="category(Mikiny).html">Mikiny</a></li>
+      <li><a href="category(Ciapky).html">Čiapky</a></li>
+    </ul>
+
+    <nav class="sidebar-nav hover-underline">
+      <a href="../index.html">O nas</a>
+      <a href="../index.html">Recenzie</a>
+      <a href="../index.html">Reklamacia</a>
+      <a href="../index.html">Kontakt</a>
+    </nav>
+  </aside>
+
+  <main>
+    <button onclick="toggle_filters()" class="toggle-filters-button">filtre</button>
+
+    <aside class="category-filters">
+      <h2>Použiť filtre:</h2>
+
+      <div class="filter-section">
+        <h3>Cena</h3>
+        <div class="price-range-line">
+          <span class="range-dot"></span>
+          <span class="range-dot"></span>
+        </div>
+        <div class="price-values">
+          <span>x</span>
+          <span>y</span>
+        </div>
+      </div>
+
+      <div class="filter-section">
+        <h3>Veľkosť</h3>
+        <div class="size-options">
+          <button class="size-button">XS</button>
+          <button class="size-button">S</button>
+          <button class="size-button">M</button>
+          <button class="size-button">L</button>
+          <button class="size-button">XL</button>
+        </div>
+      </div>
+
+      <div class="filter-section">
+        <h3>Farba</h3>
+        <div class="color-options">
+          <button class="color-button" id="black-color-button"></button>
+          <button class="color-button" id="red-color-button"></button>
+          <button class="color-button" id="orange-color-button"></button>
+          <button class="color-button" id="yellow-color-button"></button>
+          <button class="color-button" id="green-color-button"></button>
+          <button class="color-button" id="cyan-color-button"></button>
+          <button class="color-button" id="blue-color-button"></button>
+          <button class="color-button" id="purple-color-button"></button>
+          <button class="color-button" id="pink-color-button"></button>
+        </div>
+      </div>
+
+      <button class="filter-submit-button">Filtrovať</button>
+    </aside>
+
+    <section class="category-content">
+      <div class="category-top">
+        <h1>Čiapky</h1>
+
+        <div class="sort-box">
+          <div class="sort-title">Zoradiť podľa ceny</div>
+          <div class="sort-buttons">
+            <button class="sort-button">ZOSTUPNE</button>
+            <button class="sort-button">VZOSTUPNE</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="category-products-grid">
+        <a href="../product-detail.html">
+          <article class="product-card">
+            <h3>Čierna čiapka</h3>
+            <img src="../../assets/blue_t_shirt.png" alt="Product Photo" />
+            <p>12.99€</p>
+          </article>
+        </a>
+
+        <a href="../product-detail.html">
+          <article class="product-card">
+            <h3>Modrá čiapka</h3>
+            <img src="../../assets/blue_t_shirt.png" alt="Product Photo" />
+            <p>13.99€</p>
+          </article>
+        </a>
+
+        <a href="../product-detail.html">
+          <article class="product-card">
+            <h3>Zelená čiapka</h3>
+            <img src="../../assets/blue_t_shirt.png" alt="Product Photo" />
+            <p>11.99€</p>
+          </article>
+        </a>
+
+        <a href="../product-detail.html">
+          <article class="product-card">
+            <h3>Červená čiapka</h3>
+            <img src="../../assets/blue_t_shirt.png" alt="Product Photo" />
+            <p>12.49€</p>
+          </article>
+        </a>
+
+        <a href="../product-detail.html">
+          <article class="product-card">
+            <h3>Biela čiapka</h3>
+            <img src="../../assets/blue_t_shirt.png" alt="Product Photo" />
+            <p>10.99€</p>
+          </article>
+        </a>
+
+        <a href="../product-detail.html">
+          <article class="product-card">
+            <h3>Žltá čiapka</h3>
+            <img src="../../assets/blue_t_shirt.png" alt="Product Photo" />
+            <p>11.49€</p>
+          </article>
+        </a>
+
+        <a href="../product-detail.html">
+          <article class="product-card">
+            <h3>Zimná čiapka</h3>
+            <img src="../../assets/blue_t_shirt.png" alt="Product Photo" />
+            <p>15.99€</p>
+          </article>
+        </a>
+
+        <a href="../product-detail.html">
+          <article class="product-card">
+            <h3>Premium čiapka</h3>
+            <img src="../../assets/blue_t_shirt.png" alt="Product Photo" />
+            <p>18.99€</p>
+          </article>
+        </a>
+      </div>
+
+      <div class="pagination-placeholder">
+        <a href="#" class="page-link">1</a>
+        <a href="#" class="page-link">2</a>
+        <a href="#" class="page-link">3</a>
+        <a href="#" class="page-link">...</a>
+      </div>
+    </section>
+  </main>
+</div>
+</body>
 </html>

@@ -1,174 +1,169 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="../../config.js"></script>
-    <script src="../../utils.js"></script>
-    <script>
-      loadBasePath(BASE_PATH);
-    </script>
-    <link rel="stylesheet" href="layout/layout.css" />
-    <link rel="stylesheet" href="variables.css" />
-    <link rel="stylesheet" href="pages/basket/basket_pages.css" />
-    <title>3čko</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="../../utils.js"></script>
 
-  <body>
-    <div id="header"></div>
+  <link rel="stylesheet" href="../../layout/layout.css" />
+  <link rel="stylesheet" href="../../variables.css" />
+  <link rel="stylesheet" href="basket_pages.css" />
+  <title>3čko</title>
+</head>
 
-    <div class="main-content">
-      <div id="sidebar"></div>
+<body>
+<header class="header">
+  <h1 class="logo"><a href="../index.html">3čko</a></h1>
 
-      <main class="basket-page">
-        <section class="basket-header">
-          <h1>Prehľad košíka</h1>
-          <a class="basket-back-link" href="pages/index.html"
-            >↩ späť na prehliadanie</a
-          >
-        </section>
+  <div class="header-inner">
+    <nav class="nav hover-underline">
+      <a href="../auth/login.html">Prihlasenie</a>
+      <div>|</div>
+      <a href="../auth/register.html">Registracia</a>
+    </nav>
 
-        <section class="basket-items">
-          <article class="basket-item">
-            <h2 class="basket-item-title">Modré Tričko</h2>
-
-            <button class="basket-remove-btn">x</button>
-
-            <div class="basket-item-content">
-              <a href="pages/product-detail.html" class="basket-item-image-box">
-                <img class="basket-item-image" src="assets/blue_t_shirt.png" alt="Product Photo"></img>
-             </a>
-
-              <div class="basket-item-details">
-                <div class="basket-quantity-row">
-                  <span class="basket-quantity-text">Množstvo: 2</span>
-
-                  <div class="basket-quantity-buttons">
-                    <button type="button">+</button>
-                    <button type="button">-</button>
-                  </div>
-                </div>
-
-                <div class="basket-price-box">Cena: 45,98€</div>
-              </div>
-            </div>
-          </article>
-
-          <article class="basket-item">
-            <h2 class="basket-item-title">Názov Produktu</h2>
-
-            <button class="basket-remove-btn">x</button>
-
-            <div class="basket-item-content">
-              <a href="pages/product-detail.html" class="basket-item-image-box">
-                <img class="basket-item-image" src="assets/blue_t_shirt.png" alt="Product Photo"></img>
-              </a>
-
-              <div class="basket-item-details">
-                <div class="basket-quantity-row">
-                  <span class="basket-quantity-text">Množstvo: X</span>
-
-                  <div class="basket-quantity-buttons">
-                    <button type="button">+</button>
-                    <button type="button">-</button>
-                  </div>
-                </div>
-
-                <div class="basket-price-box">Cena: 0€</div>
-              </div>
-            </div>
-          </article>
-
-          <article class="basket-item">
-            <h2 class="basket-item-title">Názov Produktu</h2>
-
-            <button class="basket-remove-btn">x</button>
-
-            <div class="basket-item-content">
-              <a href="pages/product-detail.html" class="basket-item-image-box">
-                <img class="basket-item-image" src="assets/blue_t_shirt.png" alt="Product Photo"></img>
-              </a>
-
-              <div class="basket-item-details">
-                <div class="basket-quantity-row">
-                  <span class="basket-quantity-text">Množstvo: X</span>
-
-                  <div class="basket-quantity-buttons">
-                    <button type="button">+</button>
-                    <button type="button">-</button>
-                  </div>
-                </div>
-
-                <div class="basket-price-box">Cena: 0€</div>
-              </div>
-            </div>
-          </article>
-        </section>
-
-        <section class="basket-summary">
-          <div class="basket-total">Spolu: XY</div>
-
-          <a
-            class="basket-next-btn"
-            href="pages/basket/basket_delivery_and_payment.html"
-          >
-            Pokračovať k doprave a platbe
-          </a>
-        </section>
-      </main>
+    <div class="header-inner-right">
+      <form action="../search_results.html">
+        <input class="searchbar" type="text" placeholder="vyhladat..." />
+      </form>
+      <button class="basket-button">
+        <a href="basket.html">Kosik🧺</a>
+      </button>
     </div>
+  </div>
+</header>
 
-    <div id="footer"></div>
+<header class="header2">
+  <div class="header2-inner-left">
+    <button onclick="toggle_sidebar()">&nbsp;☰&nbsp;</button>
+    <button>
+      <a href="../auth/login.html">👤</a>
+    </button>
+  </div>
 
-    <script>
-      loadComponent("header", "layout/header.html");
-      loadComponent("sidebar", "layout/sidebar.html");
-      loadComponent("footer", "layout/footer.html");
-    </script>
-  </body>
+  <h1 class="logo"><a href="../index.html">3čko</a></h1>
+
+  <div class="header2-inner-right">
+    <button onclick="toggle_searchbar()">🔍</button>
+    <button>
+      <a href="basket.html">🛒</a>
+    </button>
+  </div>
+</header>
+
+<div class="search2">
+  <form action="../search_results.html">
+    <input type="text" placeholder="vyhladat..." />
+  </form>
+</div>
+
+<div class="main-content">
+  <aside class="sidebar">
+    <ul class="category-selection hover-underline">
+      <li><a href="../category_pages/category(Tricka).html">Tričká</a></li>
+      <li><a href="../category_pages/category(Mikiny).html">Mikiny</a></li>
+      <li><a href="../category_pages/category(Ciapky).html">Čiapky</a></li>
+    </ul>
+
+    <nav class="sidebar-nav hover-underline">
+      <a href="../index.html">O nas</a>
+      <a href="../index.html">Recenzie</a>
+      <a href="../index.html">Reklamacia</a>
+      <a href="../index.html">Kontakt</a>
+    </nav>
+  </aside>
+
+  <main class="basket-page">
+    <section class="basket-header">
+      <h1>Prehľad košíka</h1>
+      <a class="basket-back-link" href="../index.html">↩ späť na prehliadanie</a>
+    </section>
+
+    <section class="basket-items">
+      <article class="basket-item">
+        <h2 class="basket-item-title">Modré Tričko</h2>
+
+        <button class="basket-remove-btn">x</button>
+
+        <div class="basket-item-content">
+          <a href="../product-detail.html" class="basket-item-image-box">
+            <img class="basket-item-image" src="../../assets/blue_t_shirt.png" alt="Product Photo" />
+          </a>
+
+          <div class="basket-item-details">
+            <div class="basket-quantity-row">
+              <span class="basket-quantity-text">Množstvo: 2</span>
+
+              <div class="basket-quantity-buttons">
+                <button type="button">+</button>
+                <button type="button">-</button>
+              </div>
+            </div>
+
+            <div class="basket-price-box">Cena: 45,98€</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="basket-item">
+        <h2 class="basket-item-title">Názov Produktu</h2>
+
+        <button class="basket-remove-btn">x</button>
+
+        <div class="basket-item-content">
+          <a href="../product-detail.html" class="basket-item-image-box">
+            <img class="basket-item-image" src="../../assets/blue_t_shirt.png" alt="Product Photo" />
+          </a>
+
+          <div class="basket-item-details">
+            <div class="basket-quantity-row">
+              <span class="basket-quantity-text">Množstvo: X</span>
+
+              <div class="basket-quantity-buttons">
+                <button type="button">+</button>
+                <button type="button">-</button>
+              </div>
+            </div>
+
+            <div class="basket-price-box">Cena: 0€</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="basket-item">
+        <h2 class="basket-item-title">Názov Produktu</h2>
+
+        <button class="basket-remove-btn">x</button>
+
+        <div class="basket-item-content">
+          <a href="../product-detail.html" class="basket-item-image-box">
+            <img class="basket-item-image" src="../../assets/blue_t_shirt.png" alt="Product Photo" />
+          </a>
+
+          <div class="basket-item-details">
+            <div class="basket-quantity-row">
+              <span class="basket-quantity-text">Množstvo: X</span>
+
+              <div class="basket-quantity-buttons">
+                <button type="button">+</button>
+                <button type="button">-</button>
+              </div>
+            </div>
+
+            <div class="basket-price-box">Cena: 0€</div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="basket-summary">
+      <div class="basket-total">Spolu: XY</div>
+
+      <a class="basket-next-btn" href="basket_delivery_and_payment.html">
+        Pokračovať k doprave a platbe
+      </a>
+    </section>
+  </main>
+</div>
+</body>
 </html>
-
-<style>
-  @media (max-width: 830px) {
-  .basket-header {
-    flex-direction: column;
-  }
-
-  .basket-summary {
-    flex-direction: column;
-  }
-
-  .basket-total {
-    width: 356px;
-    margin-top: 5px;
-  }
-}
-
-@media (max-width: 460px) {
-  .basket-total {
-    width: 77vw;
-  }
-
-  .basket-next-btn {
-    width: 77vw;
-    padding: 12px 14px;
-    font-size: 18px;
-  }
-
-  .basket-item-details {
-    width: 52vw;
-  }
-
-  .basket-page {
-    padding: 20px 0 30px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .basket-item {
-    width: calc(52vw + 107px + 9px);
-    padding: 14px 0 16px 5px;
-  }
-}
-</style>

@@ -1,63 +1,111 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="../../config.js"></script>
-    <script src="../../utils.js"></script>
-    <script>
-      loadBasePath(BASE_PATH);
-    </script>
-    <link rel="stylesheet" href="layout/layout.css" />
-    <link rel="stylesheet" href="variables.css" />
-    <link rel="stylesheet" href="pages/auth/auth.css" />
-    <title>3čko</title>
-  </head>
-  <body>
-    <div id="header"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="../../utils.js"></script>
 
-    <div class="main-content">
-      <div id="sidebar"></div>
+  <link rel="stylesheet" href="../../layout/layout.css" />
+  <link rel="stylesheet" href="../../variables.css" />
+  <link rel="stylesheet" href="auth.css" />
+  <title>3čko</title>
+</head>
+<body>
+<header class="header">
+  <h1 class="logo"><a href="../index.html">3čko</a></h1>
 
-      <main>
-        <h1>Registrácia</h1>
+  <div class="header-inner">
+    <nav class="nav hover-underline">
+      <a href="login.html">Prihlasenie</a>
+      <div>|</div>
+      <a href="register.html">Registracia</a>
+    </nav>
 
-        <form>
-          <div class="form-row">
-            <label for="register-name">Meno</label>
-            <input type="text" id="register-name" />
-          </div>
-
-          <div class="form-row">
-            <label for="register-surname">Priezvisko</label>
-            <input type="text" id="register-surname" />
-          </div>
-
-          <div class="form-row">
-            <label for="register-email">e-mail</label>
-            <input type="email" id="register-email" />
-          </div>
-
-          <div class="form-row">
-            <label for="register-password">Heslo</label>
-            <input type="password" id="register-password" />
-          </div>
-
-          <button type="submit" class="submit-button">Registrovať sa</button>
-        </form>
-
-        <div class="empty-space"></div>
-
-        <div class="redirect-link-container">
-          <p>Nemáte účet?</p>
-
-          <a href="pages/auth/login.html" class="redirect-link">Prihlasenie</a>
-        </div>
-      </main>
+    <div class="header-inner-right">
+      <form action="../search_results.html">
+        <input class="searchbar" type="text" placeholder="vyhladat..." />
+      </form>
+      <button class="basket-button">
+        <a href="../basket/basket.html">Kosik🧺</a>
+      </button>
     </div>
-  </body>
-  <script>
-    loadComponent("header", "layout/header.html");
-    loadComponent("sidebar", "layout/sidebar.html");
-  </script>
+  </div>
+</header>
+
+<header class="header2">
+  <div class="header2-inner-left">
+    <button onclick="toggle_sidebar()">&nbsp;☰&nbsp;</button>
+    <button>
+      <a href="login.html">👤</a>
+    </button>
+  </div>
+
+  <h1 class="logo"><a href="../index.html">3čko</a></h1>
+
+  <div class="header2-inner-right">
+    <button onclick="toggle_searchbar()">🔍</button>
+    <button>
+      <a href="../basket/basket.html">🛒</a>
+    </button>
+  </div>
+</header>
+
+<div class="search2">
+  <form action="../search_results.html">
+    <input type="text" placeholder="vyhladat..." />
+  </form>
+</div>
+
+<div class="main-content">
+  <aside class="sidebar">
+    <ul class="category-selection hover-underline">
+      <li><a href="../category_pages/category(Tricka).html">Tričká</a></li>
+      <li><a href="../category_pages/category(Mikiny).html">Mikiny</a></li>
+      <li><a href="../category_pages/category(Ciapky).html">Čiapky</a></li>
+    </ul>
+
+    <nav class="sidebar-nav hover-underline">
+      <a href="../index.html">O nas</a>
+      <a href="../index.html">Recenzie</a>
+      <a href="../index.html">Reklamacia</a>
+      <a href="../index.html">Kontakt</a>
+    </nav>
+  </aside>
+
+  <main>
+    <h1>Registrácia</h1>
+
+    <form>
+      <div class="form-row">
+        <label for="register-name">Meno</label>
+        <input type="text" id="register-name" />
+      </div>
+
+      <div class="form-row">
+        <label for="register-surname">Priezvisko</label>
+        <input type="text" id="register-surname" />
+      </div>
+
+      <div class="form-row">
+        <label for="register-email">e-mail</label>
+        <input type="email" id="register-email" />
+      </div>
+
+      <div class="form-row">
+        <label for="register-password">Heslo</label>
+        <input type="password" id="register-password" />
+      </div>
+
+      <button type="submit" class="submit-button">Registrovať sa</button>
+    </form>
+
+    <div class="empty-space"></div>
+
+    <div class="redirect-link-container">
+      <p>Ste už zaregistrovaný?</p>
+      <a href="login.html" class="redirect-link">Prihlasenie</a>
+    </div>
+  </main>
+</div>
+</body>
 </html>

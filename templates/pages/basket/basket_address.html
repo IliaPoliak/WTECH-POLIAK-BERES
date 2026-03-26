@@ -1,89 +1,128 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="../../config.js"></script>
-    <script src="../../utils.js"></script>
-    <script>
-      loadBasePath(BASE_PATH);
-    </script>
-    <link rel="stylesheet" href="layout/layout.css" />
-    <link rel="stylesheet" href="variables.css" />
-    <link rel="stylesheet" href="pages/basket/basket_pages.css" />
-    <title>3čko</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="../../utils.js"></script>
 
-  <body>
-    <div id="header"></div>
+  <link rel="stylesheet" href="../../layout/layout.css" />
+  <link rel="stylesheet" href="../../variables.css" />
+  <link rel="stylesheet" href="basket_pages.css" />
+  <title>3čko</title>
+</head>
 
-    <div class="main-content">
-      <div id="sidebar"></div>
+<body>
+<header class="header">
+  <h1 class="logo"><a href="../index.html">3čko</a></h1>
 
-      <main class="basket-step-page">
-        <div class="basket-step-top">
-          <a
-            class="basket-step-back-left"
-            href="pages/basket/basket_delivery_and_payment.html"
-          >
-            ↩ zmeniť spôsob dopravy
-          </a>
+  <div class="header-inner">
+    <nav class="nav hover-underline">
+      <a href="../auth/login.html">Prihlasenie</a>
+      <div>|</div>
+      <a href="../auth/register.html">Registracia</a>
+    </nav>
 
-          <a class="basket-step-back-right" href="pages/index.html">
-            ↩ späť na prehliadávanie
-          </a>
-        </div>
+    <div class="header-inner-right">
+      <form action="../search_results.html">
+        <input class="searchbar" type="text" placeholder="vyhladat..." />
+      </form>
+      <button class="basket-button">
+        <a href="basket.html">Kosik🧺</a>
+      </button>
+    </div>
+  </div>
+</header>
 
-        <section class="basket-step-content">
-          <h1>Adresa</h1>
+<header class="header2">
+  <div class="header2-inner-left">
+    <button onclick="toggle_sidebar()">&nbsp;☰&nbsp;</button>
+    <button>
+      <a href="../auth/login.html">👤</a>
+    </button>
+  </div>
 
-          <form class="basket-address-form">
-            <div class="basket-form-row">
-              <label for="country">Krajina</label>
-              <input id="country" type="text" />
-            </div>
+  <h1 class="logo"><a href="../index.html">3čko</a></h1>
 
-            <div class="basket-form-row">
-              <label for="city">Mesto</label>
-              <input id="city" type="text" />
-            </div>
+  <div class="header2-inner-right">
+    <button onclick="toggle_searchbar()">🔍</button>
+    <button>
+      <a href="basket.html">🛒</a>
+    </button>
+  </div>
+</header>
 
-            <div class="basket-form-row basket-form-row-short">
-              <label for="psc">PSČ</label>
-              <input id="psc" type="text" />
-            </div>
+<div class="search2">
+  <form action="../search_results.html">
+    <input type="text" placeholder="vyhladat..." />
+  </form>
+</div>
 
-            <div class="basket-form-row">
-              <label for="address">Adresa</label>
-              <input id="address" type="text" />
-            </div>
+<div class="main-content">
+  <aside class="sidebar">
+    <ul class="category-selection hover-underline">
+      <li><a href="../category_pages/category(Tricka).html">Tričká</a></li>
+      <li><a href="../category_pages/category(Mikiny).html">Mikiny</a></li>
+      <li><a href="../category_pages/category(Ciapky).html">Čiapky</a></li>
+    </ul>
 
-            <div class="basket-form-row">
-              <label for="phone">Tel. č.</label>
-              <input id="phone" type="text" />
-            </div>
-          </form>
+    <nav class="sidebar-nav hover-underline">
+      <a href="../index.html">O nas</a>
+      <a href="../index.html">Recenzie</a>
+      <a href="../index.html">Reklamacia</a>
+      <a href="../index.html">Kontakt</a>
+    </nav>
+  </aside>
 
-          <div class="basket-step-bottom">
-            <a
-              class="basket-step-next-btn"
-              href="pages/basket/basket_payment_details.html"
-            >
-              Pokračovať k platobným údajom
-            </a>
-          </div>
-        </section>
-      </main>
+  <main class="basket-step-page">
+    <div class="basket-step-top">
+      <a class="basket-step-back-left" href="basket_delivery_and_payment.html">
+        ↩ zmeniť spôsob dopravy
+      </a>
+
+      <a class="basket-step-back-right" href="../index.html">
+        ↩ späť na prehliadávanie
+      </a>
     </div>
 
-    <div id="footer"></div>
+    <section class="basket-step-content">
+      <h1>Adresa</h1>
 
-    <script>
-      loadComponent("header", "layout/header.html");
-      loadComponent("sidebar", "layout/sidebar.html");
-      loadComponent("footer", "layout/footer.html");
-    </script>
-  </body>
+      <form class="basket-address-form">
+        <div class="basket-form-row">
+          <label for="country">Krajina</label>
+          <input id="country" type="text" />
+        </div>
+
+        <div class="basket-form-row">
+          <label for="city">Mesto</label>
+          <input id="city" type="text" />
+        </div>
+
+        <div class="basket-form-row basket-form-row-short">
+          <label for="psc">PSČ</label>
+          <input id="psc" type="text" />
+        </div>
+
+        <div class="basket-form-row">
+          <label for="address">Adresa</label>
+          <input id="address" type="text" />
+        </div>
+
+        <div class="basket-form-row">
+          <label for="phone">Tel. č.</label>
+          <input id="phone" type="text" />
+        </div>
+      </form>
+
+      <div class="basket-step-bottom">
+        <a class="basket-step-next-btn" href="basket_payment_details.html">
+          Pokračovať k platobným údajom
+        </a>
+      </div>
+    </section>
+  </main>
+</div>
+</body>
 </html>
 
 <style>
