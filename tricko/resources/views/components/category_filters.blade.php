@@ -1,0 +1,45 @@
+<button onclick="toggle_filters()" class="toggle-filters-button">filtre</button>
+
+<aside class="category-filters">
+  <h2>Použiť filtre:</h2>
+
+  <div class="filter-section">
+    <h3>Cena</h3>
+    <div class="price-range-line">
+      <span class="range-dot"></span>
+      <span class="range-dot"></span>
+    </div>
+    <div class="price-values">
+      <span>x</span>
+      <span>y</span>
+    </div>
+  </div>
+
+  <div class="filter-section">
+    <h3>Veľkosť</h3>
+    <div class="size-options">
+      <button class="size-button">XS</button>
+      <button class="size-button">S</button>
+      <button class="size-button">M</button>
+      <button class="size-button">L</button>
+      <button class="size-button">XL</button>
+    </div>
+  </div>
+
+  <div class="filter-section">
+    <h3>Farba</h3>
+    <div class="color-options">
+      <button class="color-button" id="black-color-button"></button>
+      <button class="color-button" id="red-color-button"></button>
+      <button class="color-button" id="orange-color-button"></button>
+      <button class="color-button" id="yellow-color-button"></button>
+      <button class="color-button" id="green-color-button"></button>
+      <button class="color-button" id="cyan-color-button"></button>
+      <button class="color-button" id="blue-color-button"></button>
+      <button class="color-button" id="purple-color-button"></button>
+      <button class="color-button" id="pink-color-button"></button>
+    </div>
+  </div>
+
+  <button class="filter-submit-button">Filtrovať</button>
+</aside>

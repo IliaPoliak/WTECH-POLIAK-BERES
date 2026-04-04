@@ -1,0 +1,25 @@
+:root {
+  --sidebar-width: 150px;
+  --header-hight: 100px;
+  --header2-hight: 50px;
+  --filter-width: 220px;
+  --header-padding: 15px;
+  --font: "Courier New", Courier, monospace;
+
+  --color-accent: #7e95a8;
+  --color-accent-hover: #6d8498;
+
+  --color-bg: #fff;
+  --color-surface: #fff;
+  --color-surface-soft: #eee;
+
+  --color-header: #ddd;
+  --color-sidebar: #ddd;
+  --color-sidebar-dark: #7e95a8;
+
+  --color-text: #222222;
+  --color-text-light: #ffffff;
+
+  --color-border: #bbb;
+  --color-input: #ffffff;
+}
