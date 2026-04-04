@@ -3,13 +3,20 @@
 
   <div class="header-inner">
     <nav class="nav hover-underline">
-      <a href="/auth/login">Prihlasenie</a>
+      @guest
+      <a href="/auth/login"><b>Prihlasenie</b></a>
       <div>|</div>
-      <a href="/auth/register">Registracia</a>
-      <!-- 
-          if signed in show this link instead
-          <a href="#">Moj Profil</a> 
-          -->
+      <a href="/auth/register"><b>Registracia</b></a>
+      @endguest
+
+      @auth
+        <div href="/auth/login">Prihlaseny ako: {{ auth()->user()->first_name }} {{ auth()->user()->last_name }}</div>
+        <div>|</div>
+        <form method="POST" action="{{ route('logout') }}">
+          @csrf
+          <button class="logout-button" type="submit"><b>Logout</b></button>
+        </form>
+      @endauth
     </nav>
 
     <div class="header-inner-right">

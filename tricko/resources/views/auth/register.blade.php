@@ -18,25 +18,27 @@
   <main>
     <h1>Registrácia</h1>
 
-    <form>
+    <form method="POST" action="{{ route('register') }}">
+      @csrf
+
       <div class="form-row">
         <label for="register-name">Meno</label>
-        <input type="text" id="register-name" />
+        <input type="text" id="register-name" name="first_name" required />
       </div>
 
       <div class="form-row">
         <label for="register-surname">Priezvisko</label>
-        <input type="text" id="register-surname" />
+        <input type="text" id="register-surname" name="last_name" required />
       </div>
 
       <div class="form-row">
         <label for="register-email">e-mail</label>
-        <input type="email" id="register-email" />
+        <input type="email" id="register-email" name="email" required/>
       </div>
 
       <div class="form-row">
         <label for="register-password">Heslo</label>
-        <input type="password" id="register-password" />
+        <input type="password" id="register-password" name="password" required/>
       </div>
 
       <button type="submit" class="submit-button">Registrovať sa</button>

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\LoginController;
 
 Route::get('/', function () {
     return view('index');
@@ -15,13 +17,16 @@ Route::get('/product_detail', function () {
 });
 
 // AUTH
-Route::get('/auth/login', function () {
-    return view('auth/login');
+Route::middleware('guest')->group(function () {
+    Route::get('/auth/register', [RegisterController::class, 'showRegisterForm'])->name('register.form');
+    Route::post('/auth/register', [RegisterController::class, 'register'])->name('register');
+
+    Route::get('/auth/login', [LoginController::class, 'showLoginForm'])->name('login.form');
+    Route::post('/auth/login', [LoginController::class, 'login'])->name('login');
 });
 
-Route::get('/auth/register', function () {
-    return view('auth/register');
-});
+Route::post('/auth/logout', [LoginController::class, 'logout'])->middleware('auth')->name('logout');
+
 
 // CATEGORY PAGES
 Route::get('/category_pages/category(Ciapky)', function () {

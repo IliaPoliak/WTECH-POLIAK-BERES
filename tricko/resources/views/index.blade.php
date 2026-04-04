@@ -17,7 +17,7 @@
                 <section class="bestsellers-section">
                     <h1>Bestsellery</h1>
                     <div class="bestsellers-contents">
-                        <a href="product-detail">
+                        <a href="product_detail">
                             <article class="product-card">
                                 <h3>Biele tričko</h3>
                                 <img
@@ -28,7 +28,7 @@
                             </article>
                         </a>
 
-                        <a href="product-detail">
+                        <a href="product_detail">
                             <article class="product-card">
                                 <h3>Čierne tričko</h3>
                                 <img
@@ -39,7 +39,7 @@
                             </article>
                         </a>
 
-                        <a href="product-detail">
+                        <a href="product_detail">
                             <article class="product-card">
                                 <h3>Modré tričko</h3>
                                 <img
@@ -50,7 +50,7 @@
                             </article>
                         </a>
 
-                        <a href="product-detail">
+                        <a href="product_detail">
                             <article class="product-card">
                                 <h3>Zelené tričko</h3>
                                 <img
@@ -61,7 +61,7 @@
                             </article>
                         </a>
 
-                        <a href="product-detail">
+                        <a href="product_detail">
                             <article class="product-card">
                                 <h3>Premium mikina</h3>
                                 <img
@@ -78,7 +78,7 @@
                     <section class="novinky-section">
                         <h1>Novinky</h1>
                         <div class="novinky-contents">
-                            <a href="product-detail">
+                            <a href="product_detail">
                                 <article class="product-card">
                                     <h3>Modré tričko</h3>
                                     <img
@@ -89,7 +89,7 @@
                                 </article>
                             </a>
 
-                            <a href="product-detail">
+                            <a href="product_detail">
                                 <article class="product-card">
                                     <h3>Zelené tričko</h3>
                                     <img
@@ -100,7 +100,7 @@
                                 </article>
                             </a>
 
-                            <a href="product-detail">
+                            <a href="product_detail">
                                 <article class="product-card">
                                     <h3>Žlté tričko</h3>
                                     <img
@@ -111,7 +111,7 @@
                                 </article>
                             </a>
 
-                            <a href="product-detail">
+                            <a href="product_detail">
                                 <article class="product-card">
                                     <h3>Oranžové tričko</h3>
                                     <img
@@ -127,7 +127,7 @@
                     <section class="akcia-dna-section">
                         <h1>Akcia dňa</h1>
                         <div class="akcia-dna-contents">
-                            <a href="product-detail">
+                            <a href="product_detail">
                                 <article class="akcia-dna-product-card">
                                     <h2>Fialové tričko</h2>
                                     <div class="akcia-dna-img-section">

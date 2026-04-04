@@ -18,15 +18,17 @@
   <main>
     <h1>Prihlásenie</h1>
 
-    <form>
+    <form method="POST" action="{{ route('login') }}">
+      @csrf
+
       <div class="form-row">
         <label for="login-email">e-mail</label>
-        <input type="email" id="login-email" />
+        <input type="email" id="login-email" name="email" required />
       </div>
 
       <div class="form-row">
         <label for="login-password">heslo</label>
-        <input type="password" id="login-password" />
+        <input type="password" id="login-password" name="password" required/>
       </div>
 
       <button type="submit" class="submit-button">Prihlasit sa</button>
