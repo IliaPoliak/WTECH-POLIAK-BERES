@@ -7,7 +7,7 @@
 
   <link rel="stylesheet" href="{{ asset('css/layout.css') }}" />
   <link rel="stylesheet" href="{{ asset('css/variables.css') }}" />
-  <link rel="stylesheet" href="{{ asset('css/shop_pages.css') }}" />  
+  <link rel="stylesheet" href="{{ asset('css/shop_pages.css') }}" />
   <title>Product detail</title>
 </head>
 <body>
@@ -21,45 +21,98 @@
     <section class="product-detail-layout">
       <div class="product-detail-image-box">
         <img
-                class="product-detail-image"
-                src="../assets/blue_t_shirt.png"
-                alt="Product Photo"
+          class="product-detail-image"
+          src="{{ asset($product->image) }}"
+          alt="Product Photo"
         />
       </div>
 
       <div class="product-detail-info">
-        <h1>Modré tričko</h1>
-        <p class="product-detail-price">22,99€</p>
-        <p class="product-detail-color">Farba: Modrá</p>
+        <h1>{{ $product->name }}</h1>
+        <p class="product-detail-price">{{ number_format($product->price, 2) }}€</p>
+        <p class="product-detail-color">Farba: {{ $product->color }}</p>
 
-        <div class="product-detail-sizes">
-          <h2>Veľkosť</h2>
-          <div class="product-detail-size-options">
-            <button type="button" class="product-size-button">S</button>
-            <button type="button" class="product-size-button">M</button>
-            <button type="button" class="product-size-button">L</button>
-            <button type="button" class="product-size-button">XL</button>
+        <form method="POST" action="{{ route('basket.add') }}">
+          @csrf
+
+          <div class="product-detail-sizes">
+            <h2>Veľkosť</h2>
+
+            <div class="product-detail-size-options custom-size-options">
+              @foreach($product->sizes as $size)
+                <label class="custom-size-label">
+                  <input
+                    type="radio"
+                    name="item_id"
+                    value="{{ $size->id }}"
+                    required
+                    class="custom-size-input"
+                  >
+                  <span class="custom-size-pill">{{ $size->size }}</span>
+                </label>
+              @endforeach
+            </div>
           </div>
-        </div>
 
-        <div class="product-detail-actions">
-          <button type="button" class="product-detail-cart-button">
-            Pridať do košíka
-          </button>
-        </div>
+          <div class="product-detail-actions">
+            <button type="submit" class="product-detail-cart-button">
+              Pridať do košíka
+            </button>
+          </div>
+        </form>
       </div>
     </section>
 
     <section class="product-detail-description">
       <h2>Popis produktu</h2>
       <p>
-        Modré tričko z príjemného materiálu na každodenné nosenie.
-        Jednoduchý dizajn, pohodlný strih a moderný vzhľad.
+        {{ $product->description }}
       </p>
     </section>
   </main>
 </div>
 
 @include('components.footer')
+
+<style>
+  .custom-size-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  .custom-size-label {
+    cursor: pointer;
+  }
+
+  .custom-size-input {
+    display: none;
+  }
+
+  .custom-size-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 54px;
+    height: 54px;
+    padding: 0 14px;
+    border: 1px solid #b8b8b8;
+    border-radius: 12px;
+    background: #f7f7f7;
+    font-size: 24px;
+    transition: 0.2s ease;
+  }
+
+  .custom-size-label:hover .custom-size-pill {
+    background: #ececec;
+  }
+
+  .custom-size-input:checked + .custom-size-pill {
+    background: #8fa5b7;
+    color: white;
+    border-color: #8fa5b7;
+  }
+</style>
 </body>
 </html>

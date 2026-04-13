@@ -10,7 +10,7 @@
       @endguest
 
       @auth
-        <div href="/auth/login">Prihlaseny ako: {{ auth()->user()->first_name }} {{ auth()->user()->last_name }}</div>
+        <div>Prihlaseny ako: {{ auth()->user()->first_name }} {{ auth()->user()->last_name }}</div>
         <div>|</div>
         <form method="POST" action="{{ route('logout') }}">
           @csrf
@@ -20,8 +20,14 @@
     </nav>
 
     <div class="header-inner-right">
-      <form action="/search_results">
-        <input class="searchbar" type="text" placeholder="vyhladat..." />
+      <form action="/search_results" method="GET">
+        <input
+          class="searchbar"
+          type="text"
+          name="q"
+          placeholder="vyhladat..."
+          value="{{ request('q') }}"
+        />
       </form>
       <button class="basket-button">
         <a href="/basket">Kosik🧺</a>
@@ -49,7 +55,12 @@
 </header>
 
 <div class="search2">
-  <form action="/search_results">
-    <input type="text" placeholder="vyhladat..." />
+  <form action="/search_results" method="GET">
+    <input
+      type="text"
+      name="q"
+      placeholder="vyhladat..."
+      value="{{ request('q') }}"
+    />
   </form>
 </div>

@@ -17,60 +17,18 @@
                 <section class="bestsellers-section">
                     <h1>Bestsellery</h1>
                     <div class="bestsellers-contents">
-                        <a href="product_detail">
-                            <article class="product-card">
-                                <h3>Biele tričko</h3>
-                                <img
-                                    src="{{ asset('images/blue_t_shirt.png') }}"
-                                    alt="Product Photo"
-                                />
-                                <p>19.99€</p>
-                            </article>
-                        </a>
-
-                        <a href="product_detail">
-                            <article class="product-card">
-                                <h3>Čierne tričko</h3>
-                                <img
-                                    src="{{ asset('images/blue_t_shirt.png') }}"
-                                    alt="Product Photo"
-                                />
-                                <p>17.99€</p>
-                            </article>
-                        </a>
-
-                        <a href="product_detail">
-                            <article class="product-card">
-                                <h3>Modré tričko</h3>
-                                <img
-                                    src="{{ asset('images/blue_t_shirt.png') }}"
-                                    alt="Product Photo"
-                                />
-                                <p>18.99€</p>
-                            </article>
-                        </a>
-
-                        <a href="product_detail">
-                            <article class="product-card">
-                                <h3>Zelené tričko</h3>
-                                <img
-                                    src="{{ asset('images/blue_t_shirt.png') }}"
-                                    alt="Product Photo"
-                                />
-                                <p>16.99€</p>
-                            </article>
-                        </a>
-
-                        <a href="product_detail">
-                            <article class="product-card">
-                                <h3>Premium mikina</h3>
-                                <img
-                                    src="{{ asset('images/blue_t_shirt.png') }}"
-                                    alt="Product Photo"
-                                />
-                                <p>70.99€</p>
-                            </article>
-                        </a>
+                        @foreach($products->take(6) as $product)
+                            <a href="/product_detail/{{ $product->id }}">
+                                <article class="product-card">
+                                    <h3>{{ $product->name }}</h3>
+                                    <img
+                                        src="{{ asset($product->image) }}"
+                                        alt="Product Photo"
+                                    />
+                                    <p>{{ number_format($product->price, 2) }}€</p>
+                                </article>
+                            </a>
+                        @endforeach
                     </div>
                 </section>
 
@@ -78,71 +36,43 @@
                     <section class="novinky-section">
                         <h1>Novinky</h1>
                         <div class="novinky-contents">
-                            <a href="product_detail">
-                                <article class="product-card">
-                                    <h3>Modré tričko</h3>
-                                    <img
-                                        src="{{ asset('images/blue_t_shirt.png') }}"
-                                        alt="Product Photo"
-                                    />
-                                    <p>14.99€</p>
-                                </article>
-                            </a>
-
-                            <a href="product_detail">
-                                <article class="product-card">
-                                    <h3>Zelené tričko</h3>
-                                    <img
-                                        src="{{ asset('images/blue_t_shirt.png') }}"
-                                        alt="Product Photo"
-                                    />
-                                    <p>14.99€</p>
-                                </article>
-                            </a>
-
-                            <a href="product_detail">
-                                <article class="product-card">
-                                    <h3>Žlté tričko</h3>
-                                    <img
-                                        src="{{ asset('images/blue_t_shirt.png') }}"
-                                        alt="Product Photo"
-                                    />
-                                    <p>14.99€</p>
-                                </article>
-                            </a>
-
-                            <a href="product_detail">
-                                <article class="product-card">
-                                    <h3>Oranžové tričko</h3>
-                                    <img
-                                        src="{{ asset('images/blue_t_shirt.png') }}"
-                                        alt="Product Photo"
-                                    />
-                                    <p>14.99€</p>
-                                </article>
-                            </a>
+                            @foreach($products->skip(6)->take(4) as $product)
+                                <a href="/product_detail/{{ $product->id }}">
+                                    <article class="product-card">
+                                        <h3>{{ $product->name }}</h3>
+                                        <img
+                                            src="{{ asset($product->image) }}"
+                                            alt="Product Photo"
+                                        />
+                                        <p>{{ number_format($product->price, 2) }}€</p>
+                                    </article>
+                                </a>
+                            @endforeach
                         </div>
                     </section>
 
                     <section class="akcia-dna-section">
                         <h1>Akcia dňa</h1>
                         <div class="akcia-dna-contents">
-                            <a href="product_detail">
-                                <article class="akcia-dna-product-card">
-                                    <h2>Fialové tričko</h2>
-                                    <div class="akcia-dna-img-section">
-                                        <div class="sale-badge">-25%</div>
-                                        <img
-                                            src="{{ asset('images/blue_t_shirt.png') }}"
-                                            alt="Product Photo"
-                                        />
-                                    </div>
-                                    <div class="akcia-dna-price-section">
-                                        <span class="old-price">14.99€</span>
-                                        <span class="new-price">10.99€</span>
-                                    </div>
-                                </article>
-                            </a>
+                            @php $special = $products->first(); @endphp
+                            @if($special)
+                                <a href="/product_detail/{{ $special->id }}">
+                                    <article class="akcia-dna-product-card">
+                                        <h2>{{ $special->name }}</h2>
+                                        <div class="akcia-dna-img-section">
+                                            <div class="sale-badge">-25%</div>
+                                            <img
+                                                src="{{ asset($special->image) }}"
+                                                alt="Product Photo"
+                                            />
+                                        </div>
+                                        <div class="akcia-dna-price-section">
+                                            <span class="old-price">{{ number_format($special->price, 2) }}€</span>
+                                            <span class="new-price">{{ number_format($special->price * 0.75, 2) }}€</span>
+                                        </div>
+                                    </article>
+                                </a>
+                            @endif
                         </div>
                     </section>
                 </section>
