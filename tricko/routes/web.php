@@ -9,7 +9,9 @@ use App\Models\ItemInBasket;
 
 Route::get('/', function () {
     $products = Product::all();
-    return view('index', compact('products'));
+    $recommendedProducts = Product::inRandomOrder()->limit(4)->get();
+
+    return view('index', compact('products', 'recommendedProducts'));
 });
 
 Route::get('/search_results', function () {
@@ -27,12 +29,16 @@ Route::get('/search_results', function () {
         ->paginate(6)
         ->appends(request()->query());
 
-    return view('search_results', compact('products', 'q'));
+    $recommendedProducts = Product::inRandomOrder()->limit(4)->get();
+
+    return view('search_results', compact('products', 'q', 'recommendedProducts'));
 });
 
 Route::get('/product_detail/{id}', function ($id) {
     $product = Product::with('sizes')->findOrFail($id);
-    return view('product_detail', compact('product'));
+    $recommendedProducts = Product::where('id', '!=', $id)->inRandomOrder()->limit(4)->get();
+
+    return view('product_detail', compact('product', 'recommendedProducts'));
 });
 
 Route::post('/basket/add', function (Request $request) {
@@ -97,17 +103,9 @@ Route::middleware('guest')->group(function () {
 
 Route::post('/auth/logout', [LoginController::class, 'logout'])->middleware('auth')->name('logout');
 
-// CATEGORY PAGES
-Route::get('/category_pages/category(Ciapky)', function () {
-    return view('category_pages/category(Ciapky)');
-});
-
-Route::get('/category_pages/category(Mikiny)', function () {
-    return view('category_pages/category(Mikiny)');
-});
-
-Route::get('/category_pages/category(Tricka)', function () {
-    $query = Product::with('sizes')->where('category', 'Tricka');
+function categoryProducts($category)
+{
+    $query = Product::with('sizes')->where('category', $category);
 
     if (request('color')) {
         $query->where('color', request('color'));
@@ -133,9 +131,42 @@ Route::get('/category_pages/category(Tricka)', function () {
         $query->orderBy('price', 'desc');
     }
 
-    $products = $query->paginate(6)->appends(request()->query());
+    return $query->paginate(6)->appends(request()->query());
+}
 
-    return view('category_pages/category(Tricka)', compact('products'));
+// CATEGORY PAGES
+Route::get('/tricka', function () {
+    $products = categoryProducts('Tricka');
+    $recommendedProducts = Product::where('category', '!=', 'Tricka')->inRandomOrder()->limit(4)->get();
+
+    return view('category_pages/category(Tricka)', compact('products', 'recommendedProducts'));
+});
+
+Route::get('/mikiny', function () {
+    $products = categoryProducts('Mikiny');
+    $recommendedProducts = Product::where('category', '!=', 'Mikiny')->inRandomOrder()->limit(4)->get();
+
+    return view('category_pages/category(Mikiny)', compact('products', 'recommendedProducts'));
+});
+
+Route::get('/ciapky', function () {
+    $products = categoryProducts('Ciapky');
+    $recommendedProducts = Product::where('category', '!=', 'Ciapky')->inRandomOrder()->limit(4)->get();
+
+    return view('category_pages/category(Ciapky)', compact('products', 'recommendedProducts'));
+});
+
+// staré URL nech ešte stále fungujú
+Route::get('/category_pages/category(Tricka)', function () {
+    return redirect('/tricka');
+});
+
+Route::get('/category_pages/category(Mikiny)', function () {
+    return redirect('/mikiny');
+});
+
+Route::get('/category_pages/category(Ciapky)', function () {
+    return redirect('/ciapky');
 });
 
 // BASKET
@@ -148,21 +179,31 @@ Route::get('/basket', function () {
         return $item->size->product->price * $item->quantity;
     });
 
-    return view('basket.basket', compact('basketItems', 'total'));
+    $recommendedProducts = Product::inRandomOrder()->limit(4)->get();
+
+    return view('basket.basket', compact('basketItems', 'total', 'recommendedProducts'));
 })->middleware('auth');
 
 Route::get('/basket/basket_delivery_and_payment', function () {
-    return view('basket/basket_delivery_and_payment');
+    $recommendedProducts = Product::inRandomOrder()->limit(4)->get();
+
+    return view('basket/basket_delivery_and_payment', compact('recommendedProducts'));
 });
 
 Route::get('/basket/basket_address', function () {
-    return view('basket/basket_address');
+    $recommendedProducts = Product::inRandomOrder()->limit(4)->get();
+
+    return view('basket/basket_address', compact('recommendedProducts'));
 });
 
 Route::get('/basket/basket_payment_details', function () {
-    return view('basket/basket_payment_details');
+    $recommendedProducts = Product::inRandomOrder()->limit(4)->get();
+
+    return view('basket/basket_payment_details', compact('recommendedProducts'));
 });
 
 Route::get('/basket/basket_thank_you', function () {
-    return view('basket/basket_thank_you');
+    $recommendedProducts = Product::inRandomOrder()->limit(4)->get();
+
+    return view('basket/basket_thank_you', compact('recommendedProducts'));
 });

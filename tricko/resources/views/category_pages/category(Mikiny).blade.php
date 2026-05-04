@@ -7,7 +7,7 @@
 
   <link rel="stylesheet" href="{{ asset('css/layout.css') }}" />
   <link rel="stylesheet" href="{{ asset('css/variables.css') }}" />
-  <link rel="stylesheet" href="{{ asset('css/category_pages.css') }}" />  
+  <link rel="stylesheet" href="{{ asset('css/category_pages.css') }}" />
   <title>Category - Mikiny</title>
 </head>
 <body>
@@ -18,7 +18,7 @@
   @include('components.sidebar')
 
   <main>
-      @include('components.category_filters')
+    @include('components.category_filters')
 
     <section class="category-content">
       <div class="category-top">
@@ -28,74 +28,41 @@
       </div>
 
       <div class="category-products-grid">
-        <a href="../product_detail">
-          <article class="product-card">
-            <h3>Premium mikina</h3>
-            <img src="../../assets/blue_t_shirt.png" alt="Product Photo" />
-            <p>70.99€</p>
-          </article>
-        </a>
-
-        <a href="../product_detail">
-          <article class="product-card">
-            <h3>Čierna mikina</h3>
-            <img src="../../assets/blue_t_shirt.png" alt="Product Photo" />
-            <p>49.99€</p>
-          </article>
-        </a>
-
-        <a href="../product_detail">
-          <article class="product-card">
-            <h3>Sivá mikina</h3>
-            <img src="../../assets/blue_t_shirt.png" alt="Product Photo" />
-            <p>44.99€</p>
-          </article>
-        </a>
-
-        <a href="../product_detail">
-          <article class="product-card">
-            <h3>Modrá mikina</h3>
-            <img src="../../assets/blue_t_shirt.png" alt="Product Photo" />
-            <p>46.99€</p>
-          </article>
-        </a>
-
-        <a href="../product_detail">
-          <article class="product-card">
-            <h3>Zelená mikina</h3>
-            <img src="../../assets/blue_t_shirt.png" alt="Product Photo" />
-            <p>45.99€</p>
-          </article>
-        </a>
-
-        <a href="../product_detail">
-          <article class="product-card">
-            <h3>Biela mikina</h3>
-            <img src="../../assets/blue_t_shirt.png" alt="Product Photo" />
-            <p>47.99€</p>
-          </article>
-        </a>
-
-        <a href="../product_detail">
-          <article class="product-card">
-            <h3>Oversized mikina</h3>
-            <img src="../../assets/blue_t_shirt.png" alt="Product Photo" />
-            <p>54.99€</p>
-          </article>
-        </a>
-
-        <a href="../product_detail">
-          <article class="product-card">
-            <h3>Mikina s kapucňou</h3>
-            <img src="../../assets/blue_t_shirt.png" alt="Product Photo" />
-            <p>52.99€</p>
-          </article>
-        </a>
+        @foreach($products as $product)
+          <a href="/product_detail/{{ $product->id }}">
+            <article class="product-card">
+              <h3>{{ $product->name }}</h3>
+              <img src="{{ asset($product->image) }}" alt="{{ $product->name }}" />
+              <p>{{ number_format($product->price, 2) }}€</p>
+            </article>
+          </a>
+        @endforeach
       </div>
 
-      @include('components.category_pagination')
+      <div style="margin-top: 20px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+        @if ($products->onFirstPage())
+          <span>Predošlá</span>
+        @else
+          <a href="{{ $products->appends(request()->query())->previousPageUrl() }}">Predošlá</a>
+        @endif
+
+        @for ($page = 1; $page <= $products->lastPage(); $page++)
+          @if ($page == $products->currentPage())
+            <strong>{{ $page }}</strong>
+          @else
+            <a href="{{ $products->appends(request()->query())->url($page) }}">{{ $page }}</a>
+          @endif
+        @endfor
+
+        @if ($products->hasMorePages())
+          <a href="{{ $products->appends(request()->query())->nextPageUrl() }}">Ďalšia</a>
+        @else
+          <span>Ďalšia</span>
+        @endif
+      </div>
     </section>
   </main>
 </div>
+
 </body>
 </html>

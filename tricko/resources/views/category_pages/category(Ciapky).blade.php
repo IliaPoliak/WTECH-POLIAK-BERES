@@ -11,6 +11,7 @@
   <title>Category - Čiapky</title>
 </head>
 <body>
+
 @include('components.header')
 
 <div class="main-content">
@@ -27,74 +28,41 @@
       </div>
 
       <div class="category-products-grid">
-        <a href="../product_detail">
-          <article class="product-card">
-            <h3>Čierna čiapka</h3>
-            <img src="../../assets/blue_t_shirt.png" alt="Product Photo" />
-            <p>12.99€</p>
-          </article>
-        </a>
-
-        <a href="../product_detail">
-          <article class="product-card">
-            <h3>Modrá čiapka</h3>
-            <img src="../../assets/blue_t_shirt.png" alt="Product Photo" />
-            <p>13.99€</p>
-          </article>
-        </a>
-
-        <a href="../product_detail">
-          <article class="product-card">
-            <h3>Zelená čiapka</h3>
-            <img src="../../assets/blue_t_shirt.png" alt="Product Photo" />
-            <p>11.99€</p>
-          </article>
-        </a>
-
-        <a href="../product_detail">
-          <article class="product-card">
-            <h3>Červená čiapka</h3>
-            <img src="../../assets/blue_t_shirt.png" alt="Product Photo" />
-            <p>12.49€</p>
-          </article>
-        </a>
-
-        <a href="../product_detail">
-          <article class="product-card">
-            <h3>Biela čiapka</h3>
-            <img src="../../assets/blue_t_shirt.png" alt="Product Photo" />
-            <p>10.99€</p>
-          </article>
-        </a>
-
-        <a href="../product_detail">
-          <article class="product-card">
-            <h3>Žltá čiapka</h3>
-            <img src="../../assets/blue_t_shirt.png" alt="Product Photo" />
-            <p>11.49€</p>
-          </article>
-        </a>
-
-        <a href="../product_detail">
-          <article class="product-card">
-            <h3>Zimná čiapka</h3>
-            <img src="../../assets/blue_t_shirt.png" alt="Product Photo" />
-            <p>15.99€</p>
-          </article>
-        </a>
-
-        <a href="../product_detail">
-          <article class="product-card">
-            <h3>Premium čiapka</h3>
-            <img src="../../assets/blue_t_shirt.png" alt="Product Photo" />
-            <p>18.99€</p>
-          </article>
-        </a>
+        @foreach($products as $product)
+          <a href="/product_detail/{{ $product->id }}">
+            <article class="product-card">
+              <h3>{{ $product->name }}</h3>
+              <img src="{{ asset($product->image) }}" alt="{{ $product->name }}" />
+              <p>{{ number_format($product->price, 2) }}€</p>
+            </article>
+          </a>
+        @endforeach
       </div>
 
-      @include('components.category_pagination')
+      <div style="margin-top: 20px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+        @if ($products->onFirstPage())
+          <span>Predošlá</span>
+        @else
+          <a href="{{ $products->appends(request()->query())->previousPageUrl() }}">Predošlá</a>
+        @endif
+
+        @for ($page = 1; $page <= $products->lastPage(); $page++)
+          @if ($page == $products->currentPage())
+            <strong>{{ $page }}</strong>
+          @else
+            <a href="{{ $products->appends(request()->query())->url($page) }}">{{ $page }}</a>
+          @endif
+        @endfor
+
+        @if ($products->hasMorePages())
+          <a href="{{ $products->appends(request()->query())->nextPageUrl() }}">Ďalšia</a>
+        @else
+          <span>Ďalšia</span>
+        @endif
+      </div>
     </section>
   </main>
 </div>
+
 </body>
 </html>
