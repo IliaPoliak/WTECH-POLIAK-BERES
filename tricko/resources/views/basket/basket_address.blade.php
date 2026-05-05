@@ -33,38 +33,41 @@
     <section class="basket-step-content">
       <h1>Adresa</h1>
 
-      <form class="basket-address-form">
+      <form method="POST" action="{{ route('basket.step2.store') }}" class="basket-address-form">
+        @csrf
+
         <div class="basket-form-row">
           <label for="country">Krajina</label>
-          <input id="country" type="text" />
+          <input id="country" name="country" type="text" value="{{ old('country', $deliveryMethod->country ?? '') }}" />
         </div>
 
         <div class="basket-form-row">
           <label for="city">Mesto</label>
-          <input id="city" type="text" />
+          <input id="city" name="city" type="text" value="{{ old('city', $deliveryMethod->city ?? '') }}" />
         </div>
 
         <div class="basket-form-row basket-form-row-short">
           <label for="psc">PSČ</label>
-          <input id="psc" type="text" />
+          <input id="psc" name="postal_code" type="text" value="{{ old('postal_code', $deliveryMethod->postal_code ?? '') }}" />
         </div>
 
         <div class="basket-form-row">
           <label for="address">Adresa</label>
-          <input id="address" type="text" />
+          <input id="address" name="address" type="text" value="{{ old('address', $deliveryMethod->address ?? '') }}" />
         </div>
 
         <div class="basket-form-row">
           <label for="phone">Tel. č.</label>
-          <input id="phone" type="text" />
+          <input id="phone" name="phone_number" type="text" value="{{ old('phone_number', $deliveryMethod->phone_number ?? '') }}" />
+        </div>
+
+        <div class="basket-step-bottom">
+          <button type="submit" class="basket-step-next-btn">
+            Pokračovať k platobným údajom
+          </button>
         </div>
       </form>
 
-      <div class="basket-step-bottom">
-        <a class="basket-step-next-btn" href="/basket/basket_payment_details">
-          Pokračovať k platobným údajom
-        </a>
-      </div>
     </section>
   </main>
 </div>

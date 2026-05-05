@@ -19,6 +19,7 @@
   @include('components.sidebar')
 
   <main class="basket-step-page">
+
     <div class="basket-step-top">
       <a class="basket-step-back-left" href="/basket/basket_address">
         ↩ zmeniť spôsob platby
@@ -32,31 +33,34 @@
     <section class="basket-step-content">
       <h1>Platobné údaje</h1>
 
-      <form class="basket-payment-form">
+      <form method="POST" action="{{ route('basket.step3.store') }}" class="basket-payment-form">
+        @csrf
+      
         <div class="basket-form-row">
           <label for="card-number">číslo karty</label>
-          <input id="card-number" type="text" />
+          <input id="card-number" name="card_number" type="text" value="{{ old('card_number', $paymentMethod->card_number ?? '') }}" />
         </div>
 
         <div class="basket-form-row basket-expiration-row">
           <label for="exp-month">Dátum expirácie</label>
           <div class="basket-expiration-inputs">
-            <input id="exp-month" type="text" />
-            <input id="exp-year" type="text" />
+            <input id="exp-month" name="expiration_date_month" type="text" value="{{ old('expiration_date_month', $paymentMethod->expiration_date_month ?? '') }}" />
+            <input id="exp-year" name="expiration_date_year" type="text" value="{{ old('expiration_date_year', $paymentMethod->expiration_date_year ?? '') }}" />
           </div>
         </div>
 
         <div class="basket-form-row basket-form-row-short">
           <label for="cvv">cvv</label>
-          <input id="cvv" type="text" />
+          <input id="cvv" name="cvv" type="text" value="{{ old('cvv', $paymentMethod->cvv ?? '') }}" />
+        </div>
+
+        <div class="basket-step-bottom">
+          <button type="submit" class="basket-step-next-btn">
+            Dokončiť nákup
+          </button>
         </div>
       </form>
 
-      <div class="basket-step-bottom">
-        <a class="basket-step-next-btn" href="/basket/basket_thank_you">
-          Dokončiť nákup
-        </a>
-      </div>
     </section>
   </main>
 </div>

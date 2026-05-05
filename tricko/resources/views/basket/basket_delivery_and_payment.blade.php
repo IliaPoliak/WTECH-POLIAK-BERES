@@ -33,45 +33,48 @@
 
     <section class="basket-step-content">
       <h1>Doprava a platba</h1>
+        <form method="POST" action="{{ route('basket.step1.store') }}">
+        @csrf
 
-      <div class="basket-option-group">
-        <h2>Vyberte spôsob platby</h2>
+        <div class="basket-option-group">
+          <h2>Vyberte spôsob platby</h2>
 
-        <label class="basket-option">
-          <input type="radio" name="payment" />
-          <span>platba kartou</span>
-        </label>
+          <label class="basket-option">
+            <input type="radio" name="payment" value="card" {{ old('payment', $paymentMethod->type ?? '') === 'card' ? 'checked' : '' }}/>
+            <span>platba kartou</span>
+          </label>
 
-        <label class="basket-option">
-          <input type="radio" name="payment" />
-          <span>dobierka</span>
-        </label>
-      </div>
+          <label class="basket-option">
+            <input type="radio" name="payment" value="ondelivery" {{ old('payment', $paymentMethod->type ?? '') === 'ondelivery' ? 'checked' : '' }} />
+            <span>dobierka</span>
+          </label>
+        </div>
 
-      <div class="basket-option-group">
-        <h2>Vyberte spôsob dopravy</h2>
+        <div class="basket-option-group">
+          <h2>Vyberte spôsob dopravy</h2>
 
-        <label class="basket-option">
-          <input type="radio" name="delivery" />
-          <span>osobné vyzdvihnutie</span>
-        </label>
+          <label class="basket-option">
+            <input type="radio" name="delivery" value="pickup" {{ old('delivery', $deliveryMethod->type ?? '') === 'pickup' ? 'checked' : '' }} />
+            <span>osobné vyzdvihnutie</span>
+          </label>
 
-        <label class="basket-option">
-          <input type="radio" name="delivery" />
-          <span>kurierska spoločnosť</span>
-        </label>
+          <label class="basket-option">
+            <input type="radio" name="delivery" value="courier" {{ old('delivery', $deliveryMethod->type ?? '') === 'courier' ? 'checked' : '' }} />
+            <span>kurierska spoločnosť</span>
+          </label>
 
-        <label class="basket-option">
-          <input type="radio" name="delivery" />
-          <span>poštou</span>
-        </label>
-      </div>
+          <label class="basket-option">
+            <input type="radio" name="delivery" value="post" {{ old('delivery', $deliveryMethod->type ?? '') === 'post' ? 'checked' : '' }} />
+            <span>poštou</span>
+          </label>
+        </div>
 
-      <div class="basket-step-bottom">
-        <a class="basket-step-next-btn" href="/basket/basket_address">
-          Pokračovať k adrese
-        </a>
-      </div>
+        <div class="basket-step-bottom">
+          <button type="submit" class="basket-step-next-btn">
+            Pokračovať k adrese
+          </button>
+        </div>
+      </form>
     </section>
   </main>
 </div>
