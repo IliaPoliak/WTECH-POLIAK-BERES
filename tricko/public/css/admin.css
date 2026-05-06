@@ -1,0 +1,128 @@
+.admin-page {
+    width: 100%;
+    padding: 30px;
+    padding-top: 0;
+}
+
+.admin-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.admin-top h1 {
+    margin-bottom: 5px;
+}
+
+.admin-top p {
+    margin-top: 0;
+    color: #555;
+}
+
+.admin-add-button,
+.admin-edit-button,
+.admin-delete-button {
+    display: inline-block;
+    padding: 8px 12px;
+    border: 1px solid #555;
+    border-radius: 8px;
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.admin-add-button:hover,
+.admin-edit-button:hover {
+    background-color: #eeeeee;
+}
+
+.admin-delete-button {
+    background-color: #ffd6d6;
+}
+
+.admin-delete-button:hover {
+    background-color: #ffbdbd;
+}
+
+.admin-success {
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border: 1px solid #79b879;
+    border-radius: 8px;
+    background-color: #e7ffe7;
+}
+
+.admin-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    background-color: white;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 900px;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.admin-table th {
+    background-color: #f2f2f2;
+}
+
+.admin-product-image {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.admin-size-pill {
+    display: inline-block;
+    padding: 4px 8px;
+    margin: 2px;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    background-color: #f7f7f7;
+    font-size: 13px;
+}
+
+.admin-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.admin-actions form {
+    margin: 0;
+}
+
+.admin-pagination {
+    margin-top: 20px;
+}
+
+@media (max-width: 700px) {
+    .admin-page {
+        padding: 15px;
+        padding-top: 0;
+    }
+
+    .admin-top {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}

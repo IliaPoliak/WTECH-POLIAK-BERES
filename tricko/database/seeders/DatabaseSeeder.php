@@ -98,5 +98,28 @@ class DatabaseSeeder extends Seeder
                 'updated_at' => now(),
             ]);
         }
+
+        DB::table('users')->updateOrInsert(
+            ['email' => 'admin@admin.sk'],
+            [
+                'first_name' => 'Admin',
+                'last_name' => 'Admin',
+                'password' => bcrypt('password'),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]
+        );
+
+        $adminUserId = DB::table('users')
+            ->where('email', 'admin@admin.sk')
+            ->value('id');
+
+        DB::table('admins')->updateOrInsert(
+            ['user_id' => $adminUserId],
+            [
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]
+        );
     }
 }

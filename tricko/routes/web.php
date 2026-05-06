@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Admin\ProductAdminController;
 use App\Models\Product;
 use App\Models\ItemInBasket;
 use App\Models\DeliveryMethod;
@@ -69,7 +70,7 @@ Route::post('/basket/add', function (Request $request) {
         if ($existingItem) {
             $existingItem->quantity += 1;
             $existingItem->save();
-        } 
+        }
         // If item is not in the basket add item to the basket
         else {
             ItemInBasket::create([
@@ -117,7 +118,7 @@ Route::post('/basket/increase/{id}', function ($id) {
         $item = ItemInBasket::where('user_id', auth()->id())->findOrFail($id);
         $item->quantity += 1;
         $item->save();
-    } 
+    }
     // Guest
     else {
         $basket = session('basket', []);
@@ -140,7 +141,7 @@ Route::post('/basket/increase/{id}', function ($id) {
 
 })->name('basket.increase');
 
-Route::post('/basket/decrease/{id}', function ($id) {    
+Route::post('/basket/decrease/{id}', function ($id) {
 
     // Logged in user
     if (auth()->check()) {
@@ -170,7 +171,7 @@ Route::post('/basket/decrease/{id}', function ($id) {
                     // delete item
                     unset($basket[$index]);
                 }
-                
+
                 break;
             }
         }
@@ -189,7 +190,7 @@ Route::post('/basket/remove/{id}', function ($id) {
     if (auth()->check()) {
         $item = ItemInBasket::where('user_id', auth()->id())->findOrFail($id);
         $item->delete();
-    } 
+    }
     // Guest
     else {
         $basket = session('basket', []);
@@ -198,7 +199,7 @@ Route::post('/basket/remove/{id}', function ($id) {
         foreach ($basket as $index => $item_in_basket) {
             // when found -> delete item
             if ($item_in_basket['item_id'] == $id) {
-                unset($basket[$index]);                
+                unset($basket[$index]);
                 break;
             }
         }
@@ -240,7 +241,7 @@ Route::post('/basket/step1', function (Request $request) {
                 $user->payment_method_id = $payment->id;
                 $user->delivery_method_id = $delivery->id;
                 $user->save();
-            }    
+            }
         }
         // If there are saved methods update existing ones instead of creating new ones
         else {
@@ -269,7 +270,7 @@ Route::post('/basket/step1', function (Request $request) {
     else {
         $delivery = session('delivery', []);
         $payment = session('payment', []);
-    
+
         $payment['type'] = $request->payment;
         session(['payment' => $payment]);
 
@@ -309,7 +310,7 @@ Route::post('/basket/step2', function (Request $request) {
         }
 
 
-    } 
+    }
     // Guest
     else {
         $delivery = session('delivery', []);
@@ -357,7 +358,7 @@ Route::post('/basket/step3', function (Request $request) {
         // copy saved payment method for record
         $payment = PaymentMethod::create([
             'type' => $paymentMethod->type,
-            'card_number' => $paymentMethod->card_number, 
+            'card_number' => $paymentMethod->card_number,
             'expiration_date_month' => $paymentMethod->expiration_date_month,
             'expiration_date_year' => $paymentMethod->expiration_date_year,
             'cvv' => $paymentMethod->cvv,
@@ -376,8 +377,8 @@ Route::post('/basket/step3', function (Request $request) {
 
         // create an order record
         $user = auth()->user();
-        $ItemsInBasket = $user->itemsInBasket; 
-        
+        $ItemsInBasket = $user->itemsInBasket;
+
         $price = 0;
         foreach ($ItemsInBasket as $item) {
             $price += $item->size->product->price * $item->quantity;
@@ -395,7 +396,7 @@ Route::post('/basket/step3', function (Request $request) {
                 'order_id' => $order->id,
                 'item_id' => $item->size->id,
                 'quantity' => $item->quantity,
-                
+
             ]);
         }
 
@@ -419,7 +420,7 @@ Route::post('/basket/step3', function (Request $request) {
         // copy saved payment method for record
         $payment_db_record = PaymentMethod::create([
             'type' => $payment['type'],
-            'card_number' => $payment['card_number'], 
+            'card_number' => $payment['card_number'],
             'expiration_date_month' => $payment['expiration_date_month'],
             'expiration_date_year' => $payment['expiration_date_year'],
             'cvv' => $payment['cvv'],
@@ -437,7 +438,7 @@ Route::post('/basket/step3', function (Request $request) {
         ]);
 
         // create an order record
-        $basket = session('basket', []); 
+        $basket = session('basket', []);
         $price = 0;
 
         foreach ($basket as $item) {
@@ -455,7 +456,7 @@ Route::post('/basket/step3', function (Request $request) {
             $item_in_order = ItemInOrder::create([
                 'order_id' => $order->id,
                 'item_id' => Size::where('id', $item['item_id'])->first()->id,
-                'quantity' => $item['quantity'],        
+                'quantity' => $item['quantity'],
             ]);
         }
 
@@ -478,6 +479,13 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::post('/auth/logout', [LoginController::class, 'logout'])->middleware('auth')->name('logout');
+// ADMIN
+Route::get('/admin/products', [ProductAdminController::class, 'index'])->name('admin.products.index');
+Route::get('/admin/products/create', [ProductAdminController::class, 'create'])->name('admin.products.create');
+Route::post('/admin/products', [ProductAdminController::class, 'store'])->name('admin.products.store');
+Route::get('/admin/products/{id}/edit', [ProductAdminController::class, 'edit'])->name('admin.products.edit');
+Route::put('/admin/products/{id}', [ProductAdminController::class, 'update'])->name('admin.products.update');
+Route::delete('/admin/products/{id}', [ProductAdminController::class, 'destroy'])->name('admin.products.destroy');
 
 function categoryProducts($category)
 {
@@ -592,10 +600,10 @@ Route::get('/basket/basket_delivery_and_payment', function () {
     $recommendedProducts = Product::inRandomOrder()->limit(4)->get();
 
     // Logged in user
-    if (auth()->check()) {        
+    if (auth()->check()) {
         $deliveryMethod = auth()->user()->deliveryMethod;
         $paymentMethod = auth()->user()->paymentMethod;
-    } 
+    }
     // Guest
     else {
         $delivery = session('delivery', []);
@@ -623,11 +631,11 @@ Route::get('/basket/basket_delivery_and_payment', function () {
 
 Route::get('/basket/basket_address', function () {
     $recommendedProducts = Product::inRandomOrder()->limit(4)->get();
-    
+
     // Logged in user
-    if (auth()->check()) {        
+    if (auth()->check()) {
         $deliveryMethod = auth()->user()->deliveryMethod;
-    } 
+    }
     // Guest
     else {
         $delivery = session('delivery', []);
@@ -648,9 +656,9 @@ Route::get('/basket/basket_payment_details', function () {
     $recommendedProducts = Product::inRandomOrder()->limit(4)->get();
 
     // Logged in user
-    if (auth()->check()) {        
+    if (auth()->check()) {
         $paymentMethod = auth()->user()->paymentMethod;
-    } 
+    }
     // Guest
     else {
         $payment = session('payment');

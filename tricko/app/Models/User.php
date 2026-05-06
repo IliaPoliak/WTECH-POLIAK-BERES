@@ -24,22 +24,16 @@ class User extends Authenticatable
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
     protected function casts(): array
     {
         return [
-            // 'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
     }
 
     public function itemsInBasket()
     {
-        return $this->hasMany(ItemInBasket::class);    
+        return $this->hasMany(ItemInBasket::class);
     }
 
     public function deliveryMethod()
@@ -50,5 +44,15 @@ class User extends Authenticatable
     public function paymentMethod()
     {
         return $this->belongsTo(PaymentMethod::class);
+    }
+
+    public function admin()
+    {
+        return $this->hasOne(Admin::class);
+    }
+
+    public function isAdmin()
+    {
+        return $this->admin()->exists();
     }
 }
