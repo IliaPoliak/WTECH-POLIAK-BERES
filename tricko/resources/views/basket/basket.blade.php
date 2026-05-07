@@ -37,7 +37,7 @@
 
           <div class="basket-item-content">
             <a href="/product_detail/{{ $item->size->product->id }}" class="basket-item-image-box">
-              <img class="basket-item-image" src="{{ asset($item->size->product->image) }}" alt="Product Photo" />
+              <img class="basket-item-image" src="{{ $item->size->product->imgs->first() ? asset($item->size->product->imgs->first()->image) : '' }}" alt="Product Photo" />
             </a>
 
             <div class="basket-item-details">

@@ -80,3 +80,33 @@
     />
   </form>
 </div>
+
+<script>
+
+  function toggle_sidebar() {
+    const sidebar = document.querySelector(".sidebar");
+
+    if (
+        sidebar.style.display === "none" ||
+        sidebar.style.display === ""
+    ) {
+        sidebar.style.display = "flex";
+    } else {
+        sidebar.style.display = "none";
+    }
+  }
+
+  function toggle_searchbar() {
+    const searchbar = document.querySelector(".search2");
+
+    if (
+      searchbar.style.display === "none" ||
+      searchbar.style.display === ""
+    ) {
+      searchbar.style.display = "flex";
+    } else {
+      searchbar.style.display = "none";
+    }
+  }
+
+</script>

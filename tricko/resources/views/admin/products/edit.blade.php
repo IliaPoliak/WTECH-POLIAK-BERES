@@ -147,16 +147,23 @@
 
       <div style="margin-bottom: 20px;">
         <label>Aktuálny obrázok</label>
+        <br />
 
-        @if($product->image)
-          <img
-            src="{{ asset($product->image) }}"
-            alt="{{ $product->name }}"
-            style="display: block; width: 160px; height: 160px; object-fit: cover; border: 1px solid #999; border-radius: 10px; margin-top: 8px;"
-          >
-        @else
-          <p>Produkt nemá obrázok.</p>
-        @endif
+        @foreach ($product->imgs as $img)
+          <div style="display: inline-block; ">  
+            <label> 
+              <input type="checkbox" name="imgsToDelete[]"
+                  value="{{ $img->id }}"
+              >
+              Delete
+            </label>
+            <img
+              src="{{ asset($img->image) }}"
+              alt="Product Image"
+              style="display: block; width: 160px; height: 160px; object-fit: cover; border: 1px solid #999; border-radius: 10px; margin-top: 8px;"
+            >
+          </div>
+        @endforeach
       </div>
 
       <div style="margin-bottom: 20px;">
@@ -164,8 +171,9 @@
         <input
           type="file"
           id="image"
-          name="image"
+          name="image[]"
           accept="image/*"
+          multiple
           style="display: block; width: 100%; padding: 10px 0; margin-top: 6px;"
         >
         <small>Ak nevyberieš nový obrázok, ostane pôvodný.</small>

@@ -48,7 +48,7 @@
 
         <div class="basket-form-row basket-form-row-short">
           <label for="psc">PSČ</label>
-          <input id="psc" name="postal_code" type="text" value="{{ old('postal_code', $deliveryMethod->postal_code ?? '') }}" />
+          <input pattern="[0-9]{5}" id="psc" name="postal_code" type="text" value="{{ old('postal_code', $deliveryMethod->postal_code ?? '') }}" />
         </div>
 
         <div class="basket-form-row">
@@ -58,7 +58,7 @@
 
         <div class="basket-form-row">
           <label for="phone">Tel. č.</label>
-          <input id="phone" name="phone_number" type="text" value="{{ old('phone_number', $deliveryMethod->phone_number ?? '') }}" />
+          <input type="tel" inputmode="tel" pattern="^\+?[0-9\s]{7,15}$" id="phone" name="phone_number" value="{{ old('phone_number', $deliveryMethod->phone_number ?? '') }}" />
         </div>
 
         <div class="basket-step-bottom">

@@ -68,7 +68,7 @@ class DatabaseSeeder extends Seeder
                 'gender' => $product['gender'],
                 'price' => $product['price'],
                 'color' => $product['color'],
-                'image' => $product['image'],
+                //'image' => $product['image'],
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
@@ -76,7 +76,7 @@ class DatabaseSeeder extends Seeder
 
         $allProducts = DB::table('products')->get();
 
-        foreach ($allProducts as $product) {
+        foreach ($allProducts as $index => $product) {
             if ($product->category === 'Tricka' || $product->category === 'Mikiny') {
                 DB::table('sizes')->insert([
                     ['size' => 'S', 'product_id' => $product->id, 'created_at' => now(), 'updated_at' => now()],
@@ -92,7 +92,7 @@ class DatabaseSeeder extends Seeder
 
             DB::table('product_imgs')->insert([
                 'product_id' => $product->id,
-                'image' => $product->image,
+                'image' => $products[$index]['image'],
                 'order_number' => 1,
                 'created_at' => now(),
                 'updated_at' => now(),

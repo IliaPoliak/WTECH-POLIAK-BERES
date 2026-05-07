@@ -66,9 +66,9 @@
               <td style="border: 1px solid #999; padding: 12px;">{{ $product->id }}</td>
 
               <td style="border: 1px solid #999; padding: 12px;">
-                @if($product->image)
+                @if($product->imgs->first() && $product->imgs->first()->image)
                   <img
-                    src="{{ asset($product->image) }}"
+                    src="{{ asset($product->imgs->first()->image) }}"
                     alt="{{ $product->name }}"
                     style="width: 70px; height: 70px; object-fit: cover; border-radius: 8px; display: block;"
                   />

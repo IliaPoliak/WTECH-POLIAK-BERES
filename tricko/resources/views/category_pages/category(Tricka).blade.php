@@ -34,7 +34,7 @@
           <a href="/product_detail/{{ $product->id }}">
             <article class="product-card">
               <h3>{{ $product->name }}</h3>
-              <img src="{{ asset($product->image) }}" alt="Product Photo" />
+              <img src="{{ $product->imgs->first() ? asset($product->imgs->first()->image) : '' }}" alt="Product Photo" />
               <p>{{ number_format($product->price, 2) }}€</p>
             </article>
           </a>

@@ -7,6 +7,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use App\Models\ProductImg;
 
 class ProductAdminController extends Controller
 {
@@ -21,7 +22,7 @@ class ProductAdminController extends Controller
     {
         $this->checkAdmin();
 
-        $products = Product::with('sizes')
+        $products = Product::with(['sizes', 'imgs'])
             ->orderBy('id', 'asc')
             ->paginate(10);
 
@@ -48,10 +49,11 @@ class ProductAdminController extends Controller
             'color' => 'required|in:blue,red,green,yellow,black,white',
             'sizes' => 'required|array|min:1',
             'sizes.*' => 'required|string|in:S,M,L,XL,UNI',
-            'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:4096',
+            'image' => 'required',
+            'image.*' => 'image|mimes:jpg,jpeg,png,webp|max:4096',
         ]);
 
-        $imagePath = null;
+        $imagePaths = [];
 
         if ($request->hasFile('image')) {
             $folderPath = public_path('images/products');
@@ -60,12 +62,13 @@ class ProductAdminController extends Controller
                 mkdir($folderPath, 0777, true);
             }
 
-            $file = $request->file('image');
-            $fileName = time() . '_' . Str::slug($request->name) . '.' . $file->getClientOriginalExtension();
+            foreach ($request->file('image') as $index => $file) {
+                $fileName = time() . '_' . $index . '_' . Str::slug($request->name) . '.' . $file->getClientOriginalExtension();
 
-            $file->move($folderPath, $fileName);
+                $file->move($folderPath, $fileName);
 
-            $imagePath = 'images/products/' . $fileName;
+                $imagePaths[] = 'images/products/' . $fileName;
+            }
         }
 
         $product = Product::create([
@@ -75,7 +78,7 @@ class ProductAdminController extends Controller
             'gender' => $request->gender,
             'price' => $request->price,
             'color' => $request->color,
-            'image' => $imagePath,
+            'image' => $imagePaths[0],
         ]);
 
         foreach ($request->sizes as $size) {
@@ -84,13 +87,15 @@ class ProductAdminController extends Controller
             ]);
         }
 
-        DB::table('product_imgs')->insert([
-            'product_id' => $product->id,
-            'image' => $imagePath,
-            'order_number' => 1,
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
+        foreach ($imagePaths as $index => $path) {
+            DB::table('product_imgs')->insert([
+                'product_id' => $product->id,
+                'image' => $path,
+                'order_number' => $index + 1,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
 
         return redirect('/admin/products')->with('success', 'Produkt bol úspešne pridaný.');
     }
@@ -99,7 +104,7 @@ class ProductAdminController extends Controller
     {
         $this->checkAdmin();
 
-        $product = Product::with('sizes')->findOrFail($id);
+        $product = Product::with(['sizes', 'imgs'])->findOrFail($id);
 
         return view('admin.products.edit', compact('product'));
     }
@@ -108,7 +113,7 @@ class ProductAdminController extends Controller
     {
         $this->checkAdmin();
 
-        $product = Product::with('sizes')->findOrFail($id);
+        $product = Product::with(['sizes', 'imgs'])->findOrFail($id);
 
         $request->validate([
             'name' => 'required|string|max:255',
@@ -119,32 +124,46 @@ class ProductAdminController extends Controller
             'color' => 'required|in:blue,red,green,yellow,black,white',
             'sizes' => 'required|array|min:1',
             'sizes.*' => 'required|string|in:S,M,L,XL,UNI',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:4096',
+            'imgsToDelete' => 'nullable|array',
+            'imgsToDelete.*' => 'integer',            
+            'image' => 'nullable',
+            'image.*' => 'image|mimes:jpg,jpeg,png,webp|max:4096',
         ]);
 
-        $imagePath = $product->image;
+        if ($request->filled('imgsToDelete')) {
+            foreach ($request->imgsToDelete as $imgId) {
+                $img = ProductImg::find($imgId);
 
-        if ($request->hasFile('image')) {
-            if ($product->image) {
-                $oldImagePath = public_path($product->image);
+                if ($img) {
+                    $filePath = public_path($img->image);
 
-                if (file_exists($oldImagePath)) {
-                    unlink($oldImagePath);
+                    if ($img && file_exists(public_path($img->image))) {
+                        unlink(public_path($img->image));
+                    }
+
+                    $img->delete();
                 }
             }
+        }
 
+        if ($request->hasFile('image')) {
             $folderPath = public_path('images/products');
 
             if (!file_exists($folderPath)) {
                 mkdir($folderPath, 0777, true);
             }
 
-            $file = $request->file('image');
-            $fileName = time() . '_' . Str::slug($request->name) . '.' . $file->getClientOriginalExtension();
+            foreach ($request->file('image') as $file) {
+                $fileName = time() . '_' . Str::random(5) . '_' . Str::slug($request->name) . '.' . $file->getClientOriginalExtension();
 
-            $file->move($folderPath, $fileName);
+                $file->move($folderPath, $fileName);
 
-            $imagePath = 'images/products/' . $fileName;
+                ProductImg::create([
+                    'product_id' => $product->id,
+                    'image' => 'images/products/' . $fileName,
+                    'order_number' => ProductImg::where('product_id', $product->id)->max('order_number') + 1 ?? 1,
+                ]);
+            }
         }
 
         $product->update([
@@ -154,28 +173,13 @@ class ProductAdminController extends Controller
             'gender' => $request->gender,
             'price' => $request->price,
             'color' => $request->color,
-            'image' => $imagePath,
         ]);
 
         $product->sizes()->delete();
 
         foreach ($request->sizes as $size) {
-            $product->sizes()->create([
-                'size' => $size,
-            ]);
+            $product->sizes()->create(['size' => $size]);
         }
-
-        DB::table('product_imgs')->updateOrInsert(
-            [
-                'product_id' => $product->id,
-                'order_number' => 1,
-            ],
-            [
-                'image' => $imagePath,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]
-        );
 
         return redirect('/admin/products')->with('success', 'Produkt bol úspešne upravený.');
     }

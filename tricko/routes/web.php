@@ -20,7 +20,7 @@ Route::get('/test', function () {
 
 
 Route::get('/', function () {
-    $products = Product::all();
+    $products = Product::with('imgs')->get();
     $recommendedProducts = Product::inRandomOrder()->limit(4)->get();
 
     return view('index', compact('products', 'recommendedProducts'));
@@ -47,7 +47,7 @@ Route::get('/search_results', function () {
 });
 
 Route::get('/product_detail/{id}', function ($id) {
-    $product = Product::with('sizes')->findOrFail($id);
+    $product = Product::with(['sizes', 'imgs'])->findOrFail($id);
     $recommendedProducts = Product::where('id', '!=', $id)->inRandomOrder()->limit(4)->get();
 
     return view('product_detail', compact('product', 'recommendedProducts'));
@@ -479,6 +479,7 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::post('/auth/logout', [LoginController::class, 'logout'])->middleware('auth')->name('logout');
+
 // ADMIN
 Route::get('/admin/products', [ProductAdminController::class, 'index'])->name('admin.products.index');
 Route::get('/admin/products/create', [ProductAdminController::class, 'create'])->name('admin.products.create');
@@ -489,7 +490,7 @@ Route::delete('/admin/products/{id}', [ProductAdminController::class, 'destroy']
 
 function categoryProducts($category)
 {
-    $query = Product::with('sizes')->where('category', $category);
+    $query = Product::with(['sizes', 'imgs'])->where('category', $category);
 
     if (request('color')) {
         $query->where('color', request('color'));
@@ -559,7 +560,7 @@ Route::get('/basket', function () {
     // Logged in user
     if (auth()->check()) {
         // Get basket items from DB
-        $basketItems = ItemInBasket::with('size.product')
+        $basketItems = ItemInBasket::with('size.product.imgs')
             ->where('user_id', auth()->id())
             ->get();
 

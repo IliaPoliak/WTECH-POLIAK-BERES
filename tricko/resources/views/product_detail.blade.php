@@ -20,11 +20,21 @@
   <main class="product-detail-page">
     <section class="product-detail-layout">
       <div class="product-detail-image-box">
-        <img
+
+        @if ($product->imgs->count() > 1)
+          <button type="button" onclick="prevImage()"><</button>  
+        @endif
+        
+
+        <img id="mainImage"
           class="product-detail-image"
-          src="{{ asset($product->image) }}"
+          src="{{ $product->imgs->first() ? asset($product->imgs->first()->image) : '' }}"
           alt="Product Photo"
         />
+
+        @if ($product->imgs->count() > 1)
+          <button type="button" onclick="nextImage()">></button>
+        @endif
       </div>
 
       <div class="product-detail-info">
@@ -116,3 +126,26 @@
 </style>
 </body>
 </html>
+
+<script>
+let images = @json($product->imgs->pluck('image')->map(fn($img) => asset($img)));
+let index = 0;
+
+function showImage() {
+    if (images.length > 0) {
+        document.getElementById('mainImage').src = images[index];
+    }
+}
+
+function nextImage() {
+    if (images.length === 0) return;
+    index = (index + 1) % images.length;
+    showImage();
+}
+
+function prevImage() {
+    if (images.length === 0) return;
+    index = (index - 1 + images.length) % images.length;
+    showImage();
+}
+</script>

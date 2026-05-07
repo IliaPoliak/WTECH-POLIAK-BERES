@@ -23,17 +23,17 @@
 
       <div class="form-row">
         <label for="register-name">Meno</label>
-        <input type="text" id="register-name" name="first_name" required />
+        <input type="text" id="register-name" name="first_name" value="{{ old('first_name') }}" required />
       </div>
 
       <div class="form-row">
         <label for="register-surname">Priezvisko</label>
-        <input type="text" id="register-surname" name="last_name" required />
+        <input type="text" id="register-surname" name="last_name" value="{{ old('last_name') }}" required />
       </div>
 
       <div class="form-row">
         <label for="register-email">e-mail</label>
-        <input type="email" id="register-email" name="email" required/>
+        <input type="email" id="register-email" name="email" value="{{ old('email') }}" required/>
       </div>
 
       <div class="form-row">
@@ -42,6 +42,10 @@
       </div>
 
       <button type="submit" class="submit-button">Registrovať sa</button>
+
+      @error('password')
+        <p class="error">{{ $message }}</p>
+      @enderror
     </form>
 
     <div class="empty-space"></div>

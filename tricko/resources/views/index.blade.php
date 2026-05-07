@@ -22,7 +22,7 @@
                                 <article class="product-card">
                                     <h3>{{ $product->name }}</h3>
                                     <img
-                                        src="{{ asset($product->image) }}"
+                                        src="{{ $product->imgs->first() ? asset($product->imgs->first()->image) : '' }}"
                                         alt="Product Photo"
                                     />
                                     <p>{{ number_format($product->price, 2) }}€</p>
@@ -41,7 +41,7 @@
                                     <article class="product-card">
                                         <h3>{{ $product->name }}</h3>
                                         <img
-                                            src="{{ asset($product->image) }}"
+                                            src="{{ $product->imgs->first() ? asset($product->imgs->first()->image) : '' }}"
                                             alt="Product Photo"
                                         />
                                         <p>{{ number_format($product->price, 2) }}€</p>
@@ -62,7 +62,7 @@
                                         <div class="akcia-dna-img-section">
                                             <div class="sale-badge">-25%</div>
                                             <img
-                                                src="{{ asset($special->image) }}"
+                                                src="{{ $product->imgs->first() ? asset($product->imgs->first()->image) : '' }}"
                                                 alt="Product Photo"
                                             />
                                         </div>
@@ -78,34 +78,6 @@
                 </section>
             </main>
         </div>
-
-        <script>
-            function toggle_sidebar() {
-                const sidebar = document.querySelector(".sidebar");
-
-                if (
-                    sidebar.style.display === "none" ||
-                    sidebar.style.display === ""
-                ) {
-                    sidebar.style.display = "flex";
-                } else {
-                    sidebar.style.display = "none";
-                }
-            }
-
-            function toggle_searchbar() {
-                const searchbar = document.querySelector(".search2");
-
-                if (
-                    searchbar.style.display === "none" ||
-                    searchbar.style.display === ""
-                ) {
-                    searchbar.style.display = "flex";
-                } else {
-                    searchbar.style.display = "none";
-                }
-            }
-        </script>
     </body>
 </html>
 

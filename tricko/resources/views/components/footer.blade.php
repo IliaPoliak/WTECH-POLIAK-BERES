@@ -7,7 +7,7 @@
         <a href="/product_detail/{{ $product->id }}" class="recommend-card">
           <img
             class="recommend-product-image"
-            src="{{ asset($product->image) }}"
+            src="{{ $product->imgs->first() ? asset($product->imgs->first()->image) : '' }}"
             alt="{{ $product->name }}"
           />
 

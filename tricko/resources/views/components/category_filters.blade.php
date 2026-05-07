@@ -38,7 +38,7 @@
 
     <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 20px;">
       <a
-        href="/category_pages/category(Tricka)"
+        href="{{ url()->current() }}"
         style="
           display: inline-block;
           text-align: center;
@@ -60,13 +60,59 @@
 </aside>
 
 <script>
+  setup();
+
+  function setup() {
+    const panel = document.getElementById('filters-panel');
+    const main = document.querySelector("main");
+    const width = window.innerWidth;
+
+    if (width < 1000) {
+      hideFilters();
+    }
+    else {
+      showFilters();
+    }
+  }
+
+  function showFilters() {
+    const panel = document.getElementById('filters-panel');
+    const main = document.querySelector("main");
+    const width = window.innerWidth;
+
+    // Show panel
+    panel.style.display = 'block';
+    // Adjust margins
+    main.style.marginLeft =
+      width > 655
+          ? "calc(var(--sidebar-width) + var(--filter-width) + 25px)"
+          : "calc(var(--filter-width) + 25px)";
+  }
+
+  function hideFilters() {
+    const panel = document.getElementById('filters-panel');
+    const main = document.querySelector("main");
+    const width = window.innerWidth;
+
+    panel.style.display = 'none';
+    // Adjust margins
+    main.style.marginLeft = width > 655 ? "var(--sidebar-width)" : "0";
+  }
+
   function toggleFiltersPanel() {
     const panel = document.getElementById('filters-panel');
+    const main = document.querySelector("main");
 
+    const width = window.innerWidth;
+
+    // If not visible -> show
     if (panel.style.display === 'none') {
-      panel.style.display = 'block';
-    } else {
-      panel.style.display = 'none';
+      showFilters();
+    } 
+    // If visible -> hide
+    else if (panel.style.display === 'block') {
+      hideFilters();
     }
+
   }
 </script>

@@ -148,8 +148,9 @@
         <input
           type="file"
           id="image"
-          name="image"
+          name="image[]"
           accept="image/*"
+          multiple
           required
           style="display: block; width: 100%; padding: 10px 0; margin-top: 6px;"
         >

@@ -23,7 +23,7 @@
 
       <div class="form-row">
         <label for="login-email">e-mail</label>
-        <input type="email" id="login-email" name="email" required />
+        <input type="email" id="login-email" name="email" value="{{ old('email') }}" required />
       </div>
 
       <div class="form-row">
@@ -32,7 +32,12 @@
       </div>
 
       <button type="submit" class="submit-button">Prihlasit sa</button>
+    
+      @error('email')
+        <p class="error">{{ $message }}</p>
+      @enderror
     </form>
+
 
     <div class="empty-space"></div>
 

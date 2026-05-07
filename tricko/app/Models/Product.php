@@ -13,11 +13,16 @@ class Product extends Model
         'gender',
         'price',
         'color',
-        'image',
+        //'image',
     ];
 
     public function sizes()
     {
         return $this->hasMany(Size::class);
+    }
+
+    public function imgs()
+    {
+        return $this->hasMany(ProductImg::class);
     }
 }
